@@ -132,13 +132,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Entity_manager.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Keys.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Phase.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Projet 2.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Entity_manager.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Keys.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Phase.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projet 2.cpp" />
+    <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Projet 2.rc" />

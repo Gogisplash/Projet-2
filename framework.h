@@ -14,3 +14,17 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
+#include "App.h"
+#include "Camera.h"
+#include "Controller.h"
+#include "Enemy.h"
+#include "Entity.h"
+#include "Entity_manager.h"
+#include "Game.h"
+#include "Keys.h"
+#include "Menu.h"
+#include "Phase.h"
+#include "Player.h"
+#include "State.h"
+
