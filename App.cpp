@@ -78,9 +78,14 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
+	/*LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
+	LoadTextureFromResource(m_texBack, IDB_TEXTURE_BACK);
+	LoadTextureFromResource(m_texPlayerLevels[0], IDB_TEXTURE_PLAYERLV1);
+	LoadTextureFromResource(m_texPlayerLevels[1], IDB_TEXTURE_PLAYERLV2);
+	LoadTextureFromResource(m_texPlayerLevels[2], IDB_TEXTURE_PLAYERLV3);
+	LoadTextureFromResource(m_texPlayerLevels[3], IDB_TEXTURE_PLAYERLV4);
+	LoadTextureFromResource(m_texPlayerLevels[4], IDB_TEXTURE_PLAYERLV5);*/
 }
-
-
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 {
@@ -91,4 +96,88 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 	bool result = texture.loadFromMemory(data, size);
 	delete[] data;
 	return result;
+}
+
+bool App::HasWindow()
+{
+	if (m_window.isOpen() == false)
+		return false;
+
+	sf::Event event;
+	while (m_window.pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+		{
+			m_window.close();
+			return false;
+		}
+	}
+
+	return true;
+}
+
+void App::ToPhase(int phase, bool victory)
+{
+	switch (phase)
+	{
+	case Phase::MENU:
+		m_pPhase = &m_menu;
+		break;
+	case Phase::GAME:
+		m_pPhase = &m_game;
+		m_pPhase->ToState(STATE_GAME_START);
+		break;
+	}
+}
+
+bool App::UpdateTime()
+{
+	// System time
+	DWORD newSysTime = timeGetTime();
+	DWORD elapsedSysTime = newSysTime - m_sysTime;
+	if (elapsedSysTime < 5) // 200 fps max
+		return false;
+	m_sysTime = newSysTime;
+	if (elapsedSysTime > 40) // 25 fps min
+		elapsedSysTime = 40;
+
+	// App time
+	m_elapsedTime = elapsedSysTime / 1000.0f;
+	m_time += m_elapsedTime;
+	return true;
+}
+
+void App::Update()
+{
+	// Controller
+	m_controller.OnUpdate();
+
+	// Phase (state update)
+	m_pPhase->OnExecute();
+
+	// Phase (main update)
+	m_pPhase->OnUpdate();
+
+	//Fps
+	if (m_time - m_lastUpdate > 1)
+	{
+		/*m_lastUpdate = 0.0f;*/
+		m_fps = m_countFrame;
+		m_countFrame = 0.0f;
+		m_lastUpdate = m_time;
+	}
+	m_countFrame += 1;
+}
+
+void App::Render()
+{
+	// Clear
+	m_rt.clear();
+
+	// Draw
+	m_pPhase->OnRender(m_rt);
+
+	// Window
+	m_window.draw(m_sprite);
+	m_window.display();
 }
