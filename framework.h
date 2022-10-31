@@ -6,15 +6,21 @@
 #include <SFML/Graphics.hpp>
 
 #include "targetver.h"
-#define WIN32_LEAN_AND_MEAN             // Exclure les en-têtes Windows rarement utilisés
-// Fichiers d'en-tête Windows
 #include <windows.h>
-// Fichiers d'en-tête C RunTime
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
 
+#include "Resource.h"
+
+#define WNDSIZE_U							1000
+#define WNDSIZE_F							1000.0f
+#define GRIDSIZE							100.0f
+
+using namespace std; 
+
+#include "Global.h"
 #include "App.h"
 #include "Camera.h"
 #include "Controller.h"
