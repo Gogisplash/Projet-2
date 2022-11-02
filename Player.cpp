@@ -26,6 +26,10 @@ void Player::Mouvement()
 		m_pPlayer->AddX(m_speed * elapsed);
 	if (GetController()->Left())
 		m_pPlayer->AddX(-m_speed * elapsed);
+	if (GetController()->Up())
+		m_pPlayer->AddY(m_speed * elapsed);
+	if (GetController()->Down())
+		m_pPlayer->AddY(-m_speed * elapsed);
 }
 
 void Player::OnEnter(int oldState)

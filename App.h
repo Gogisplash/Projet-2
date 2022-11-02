@@ -45,7 +45,7 @@ protected:
 
 	float m_time;
 	float m_elapsedTime;
-
+	float m_lastUpdate;
 
 	RenderWindow m_window;
 	RenderTexture m_rt;

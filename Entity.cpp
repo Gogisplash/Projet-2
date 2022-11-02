@@ -69,3 +69,7 @@ void Entity::SetTexture(Texture& texture)
 	m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }
+void UpdateAnimation()
+{
+	
+}

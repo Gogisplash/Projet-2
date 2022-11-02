@@ -2,7 +2,8 @@
 
 App::App()
 {
-	m_hInstance = NULL;
+	
+	m_lastUpdate = 0.0f;
 	m_pPhase = NULL;
 }
 
@@ -39,6 +40,14 @@ void App::SetText(sf::Text& txt, String str)
 
 void App::Init(HINSTANCE hInstance)
 {
+	// App
+	m_hInstance = hInstance;
+
+	// Time
+	m_sysTime = timeGetTime();
+	m_elapsedTime = 0.0f;
+	m_time = 0.0f;
+
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 	//Activation du vsync
