@@ -27,13 +27,31 @@ void Game::Start()
 
 void Game::OnEnter(int oldState)
 {
-	Start();
+	{
+		switch (m_state)
+		{
+		case STATE_GAME_START:
+			Start();
+			break;
+		case STATE_GAME_PLAY:
+			break;
+		}
+	}
 }
 
 
 void Game::OnExecute()
 {
-
+	switch (m_state)
+	{
+	case STATE_GAME_START:
+		ToState(STATE_GAME_PLAY);
+		break;
+	case STATE_GAME_PLAY:
+		//ExecutePlay();
+		break;
+	}
+	
 }
 
 void Game::OnExit(int newState)

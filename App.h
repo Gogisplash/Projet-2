@@ -22,6 +22,11 @@ public:
 
 	bool HasWindow();
 
+	bool UpdateTime();
+	float GetTime() { return m_time; }
+	float GetElapsedTime() { return m_elapsedTime; }
+
+
 	void ToPhase(int phase);
 
 	void Render();
@@ -36,7 +41,12 @@ public:
 
 protected:
 	HINSTANCE m_hInstance;
-	//DWORD m_sysTime;
+	DWORD m_sysTime;
+
+	float m_time;
+	float m_elapsedTime;
+
+
 	RenderWindow m_window;
 	RenderTexture m_rt;
 	Sprite m_sprite;

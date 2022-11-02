@@ -46,6 +46,12 @@ void App::Init(HINSTANCE hInstance)
 	// On règle toutes les propriétés
 	//SetText(txt, "Mon texte !"); Ecrire un texte
 
+	m_rt.create(WNDSIZE_W, WNDSIZE_H);
+	m_sprite.setTexture(m_rt.getTexture());
+
+	LoadTextures();
+
+
 	ToPhase(Phase::GAME);
 }
 
@@ -82,6 +88,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
+	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -110,14 +117,24 @@ bool App::HasWindow()
 			return false;
 		}
 	}
-	// Couleur de la fenêtre
-	m_window.clear(sf::Color::Black);
+	
+	return true;
+}
 
-	// Dessiner à l'écran
-	//m_window.draw(txt); Tout les textes a dessiner sont forcemment a faire ici
+bool App::UpdateTime()
+{
+	// System time
+	DWORD newSysTime = timeGetTime();
+	DWORD elapsedSysTime = newSysTime - m_sysTime;
+	if (elapsedSysTime < 5) // 200 fps max
+		return false;
+	m_sysTime = newSysTime;
+	if (elapsedSysTime > 40) // 25 fps min
+		elapsedSysTime = 40;
 
-	// Dessiner à l'écran tout les  éléments
-	m_window.display();
+	// App time
+	m_elapsedTime = elapsedSysTime / 1000.0f;
+	m_time += m_elapsedTime;
 	return true;
 }
 
@@ -130,7 +147,7 @@ void App::ToPhase(int phase)
 		break;
 	case Phase::GAME:
 		m_pPhase = &m_game;
-		//m_pPhase->ToState(STATE_GAME_START);
+		m_pPhase->ToState(STATE_GAME_START);
 		break;
 	}
 }
@@ -144,10 +161,12 @@ void App::Render()
 	m_pPhase->OnRender(m_rt);
 
 	// Window
-	m_window.draw(m_sprite);
+	//m_window.draw(m_sprite);
 
+	//m_window.clear(Color::Red);
+	m_window.draw(m_sprite);
 	m_window.display();
-	
+
 
 }
 
