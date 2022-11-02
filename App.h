@@ -17,9 +17,15 @@ public:
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
 	Game* GetGame() { return &m_game; }
+	Controller* GetController() { return &m_controller; }
 	Entity_manager* GetManager() { return m_game.GetManager(); }
 
 	bool HasWindow();
+
+	bool UpdateTime();
+	float GetTime() { return m_time; }
+	float GetElapsedTime() { return m_elapsedTime; }
+
 
 	void ToPhase(int phase);
 
@@ -36,7 +42,12 @@ public:
 
 protected:
 	HINSTANCE m_hInstance;
-	//DWORD m_sysTime;
+	DWORD m_sysTime;
+
+	float m_time;
+	float m_elapsedTime;
+
+
 	RenderWindow m_window;
 	RenderTexture m_rt;
 	Sprite m_sprite;

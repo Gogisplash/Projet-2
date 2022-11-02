@@ -6,8 +6,8 @@ public:
 	enum
 	{
 		NONE,
-		GAME,
-		MENU
+		MENU,
+		GAME
 	};
 
 public:

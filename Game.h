@@ -14,6 +14,8 @@ public:
   
    
     Entity_manager* GetManager() { return &m_manager; }
+    Player* GetPlayer() { return &m_player; }
+
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
     virtual void OnExit(int newState);
