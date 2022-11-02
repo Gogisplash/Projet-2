@@ -24,6 +24,9 @@
 #define STATE_GAME_PLAY						2
 
 
+#define STATE_GAME_START					1
+#define STATE_GAME_PLAY						2
+
 using namespace sf;
 using namespace std; 
 

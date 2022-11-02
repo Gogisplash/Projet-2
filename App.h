@@ -32,8 +32,16 @@ public:
 	void Render();
 	void Update();
 
+
+	void Quit() { m_running = false; } // Option quitter de l'écran
+
+	bool m_running;
+
+
 	// Création des classes de Texture avec SFML
 
+	sf::Texture m_texMenu;
+	sf::Texture m_texBack;
 	sf::Font font;
 	Texture m_texGround;
 	Texture m_texPlayer;

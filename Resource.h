@@ -4,6 +4,8 @@
 //
 #define IDC_MYICON                      2
 #define IDC_TEXTURE_GROUND              3
+#define IDC_MAX_NUMBER_OF_ITEMS         3
+#define MAX_NUMBER_OF_ITEMS             4
 #define IDD_PROJET2_DIALOG              102
 #define IDS_APP_TITLE                   103
 #define IDD_ABOUTBOX                    103
@@ -13,9 +15,8 @@
 #define IDI_SMALL                       108
 #define IDC_PROJET2                     109
 #define IDR_MAINFRAME                   128
-#define IDB_PNG1                        129
+#define IDB_TEXTURE_MENU                999
 #define IDB_TEXTURE_GROUND              129
-#define IDB_PNG2                        130
 #define IDB_PLAYER_IDLE                 130
 #define IDR_FONT1                       131
 #define IDB_PNG3                        132
