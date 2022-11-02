@@ -10,9 +10,22 @@ public:
 	
 	bool HasWindow();
 
+	bool UpdateTime();
+	void Update();
+	void Render();
+
 protected:
 	HINSTANCE m_hInstance;
+	DWORD m_sysTime;
 
 	RenderWindow m_window;
+	RenderTexture m_rt;
+	Sprite m_sprite;
+
+	float m_time;
+	float m_elapsedTime;
+
+	Controller m_controller;
+	Phase* m_pPhase;
 };
 
