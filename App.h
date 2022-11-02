@@ -20,7 +20,7 @@ public:
 	// Création des classes de Texture avec SFML
 
 	sf::Texture m_texGround;
-	sf::Texture m_texBack;
+	sf::Texture m_texPlayer;
 
 protected:
 	HINSTANCE m_hInstance;
