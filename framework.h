@@ -20,6 +20,7 @@
 using namespace sf;
 using namespace std; 
 
+
 #include "Global.h"
 #include "State.h"
 #include "Phase.h"
