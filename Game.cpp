@@ -22,11 +22,12 @@ void Game::Uninit()
 
 void Game::Start()
 {
-
+	m_player.Init();
 }
 
 void Game::OnEnter(int oldState)
 {
+	Start();
 }
 
 
@@ -42,7 +43,7 @@ void Game::OnExit(int newState)
 void Game::OnUpdate() 
 {
 	// Player
-	//m_player.OnUpdate();
+	m_player.OnUpdate();
 
 
 	// Entities

@@ -21,8 +21,8 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-   /* Sprite m_sprite;
-    EntityManager m_manager;
-    Player m_player;*/
+    //Sprite m_sprite;
+    //EntityManager m_manager;
+    Player m_player;
 };
 
