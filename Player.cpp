@@ -10,6 +10,8 @@ Player::~Player()
 
 void Player::Init()
 {
+	m_pPlayer = new Entity;
+	m_pPlayer->SetTexture(GetApp()->m_texPlayer);
 }
 
 void Player::OnEnter(int oldState)

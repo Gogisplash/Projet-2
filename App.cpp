@@ -14,6 +14,7 @@ void App::Init(HINSTANCE hInstance)
 	// App
 	m_hInstance = hInstance;
 
+
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 
@@ -92,8 +93,10 @@ void App::Render()
 	// Clear
 	m_rt.clear();
 
-	// Window
+	// Draw
+	m_pPhase->OnRender(m_rt);
 
+	// Window
 	m_window.draw(m_sprite);
 	m_window.display();
 }

@@ -11,13 +11,8 @@ public:
     void Init();
     void Uninit();
     void Start();
-    void LoadLevel();
-
-    void UpdateUI();
-
-    void Score(int score);
-
-    void ExecutePlay();
+  
+   
 
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
@@ -26,6 +21,8 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-    sf::Sprite m_sprite;
+   /* Sprite m_sprite;
+    EntityManager m_manager;
+    Player m_player;*/
 };
 

@@ -13,5 +13,7 @@ public:
     virtual void OnExecute();
     virtual void OnExit(int newState);
     virtual void OnUpdate();
+protected:
+    Entity* m_pPlayer;
 };
 

@@ -11,11 +11,13 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-
+#include <vector>
+#include <set>
 #include "Resource.h"
 
 #define WNDSIZE_H							900
 #define WNDSIZE_W							1600
+#define RAD2DEG(r)							((r)*57.29577951f)
 
 using namespace sf;
 using namespace std; 
