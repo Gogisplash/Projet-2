@@ -69,7 +69,11 @@ void Entity::SetTexture(Texture& texture)
 	m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }
-void UpdateAnimation()
+void Entity::UpdateAnimation()
 {
+	int frameX = 0;
+	int frameY = 0;
 	
+	m_sprite->setTextureRect(IntRect(frameX, frameY, 32, 32));
 }
+

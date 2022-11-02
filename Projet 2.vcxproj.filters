@@ -129,6 +129,9 @@
     <Image Include="ressource\Main Characters\Virtual Guy\Idle (32x32).png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="ressource\Terrain\Terrain (16x16).png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="ressource\Front\poorFront.ttf" />

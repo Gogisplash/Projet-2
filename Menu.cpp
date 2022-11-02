@@ -22,6 +22,7 @@ void Menu::OnEnter(int oldState)
 
 void Menu::OnExecute()
 {
+
 }
 
 void Menu::OnExit(int newState)
