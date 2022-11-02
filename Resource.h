@@ -15,13 +15,8 @@
 #define IDI_SMALL                       108
 #define IDC_PROJET2                     109
 #define IDR_MAINFRAME                   128
-#define IDB_PNG1                        130
-#define IDB_TEXTURE_GROUND              130
-#define IDB_PNG2                        131
 #define IDB_TEXTURE_MENU                999
-#define IDB_PNG1                        129
 #define IDB_TEXTURE_GROUND              129
-#define IDB_PNG2                        130
 #define IDB_PLAYER_IDLE                 130
 #define IDR_FONT1                       131
 #define IDC_TEXTURE_BACK                1000

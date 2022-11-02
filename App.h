@@ -32,7 +32,6 @@ public:
 	void Render();
 	void Update();
 
-	void ToPhase(int phase);
 
 	void Quit() { m_running = false; } // Option quitter de l'écran
 
@@ -42,7 +41,6 @@ public:
 	// Création des classes de Texture avec SFML
 
 	sf::Texture m_texMenu;
-	sf::Texture m_texGround;
 	sf::Texture m_texBack;
 	sf::Font font;
 	Texture m_texGround;
