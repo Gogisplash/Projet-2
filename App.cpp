@@ -1,5 +1,4 @@
 #include "framework.h"
-#include <Font.Dlg>
 
 App::App()
 {
@@ -132,32 +131,6 @@ void App::ToPhase(int phase)
 		//m_pPhase->ToState(STATE_GAME_START);
 		break;
 	}
-}
-
-// Chargement de la police si elle est bien chargée
-void LoadFont()
-{
-	if (font.loadFromFile("x64/Debug/res/poorFront.ttf") == false)
-	{
-		//assert(0);
-		// Check que la police est chargée
-		cout << "Erreur chargement font !" << endl;
-		//WriteConsoleOutputW()
-	}
-}
-
-void SetText(sf::Text &txt, String str)
-{
-	// Indication de la bonne police
-	m_txt.setFont(font);
-	// chaine de string
-	m_txt.setString(str);
-	// On indique la taille
-	m_txt.setCharacterSize(26);
-	// On donne la couleur
-	m_txt.setFillColor(sf::Color::Cyan);
-	// Modif du style
-	m_txt.setStyle(Text::Bold | Text::Underlined);
 }
 
 void App::Render()
