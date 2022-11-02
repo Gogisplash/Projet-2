@@ -17,9 +17,12 @@ public:
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
 	Game* GetGame() { return &m_game; }
-	
 	bool HasWindow();
+
+	void ToPhase(int phase);
+
 	void Render();
+	void Update();
 
 	// Création des classes de Texture avec SFML
 
@@ -30,11 +33,14 @@ public:
 
 protected:
 	HINSTANCE m_hInstance;
+	DWORD m_sysTime;
 	RenderWindow m_window;
 	RenderTexture m_rt;
 	Sprite m_sprite;
 
+	Controller m_controller;
 	Game m_game;
+	Menu m_menu;
 
 	Phase* m_pPhase;
 };
