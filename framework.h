@@ -17,6 +17,9 @@
 #define WNDSIZE_H							900
 #define WNDSIZE_W							1600
 
+#define STATE_GAME_START					1
+#define STATE_GAME_PLAY						2
+
 using namespace sf;
 using namespace std; 
 

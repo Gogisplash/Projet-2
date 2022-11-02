@@ -126,5 +126,8 @@
     <Image Include="res\Texture\ground.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="res\Texture\menu.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

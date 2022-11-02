@@ -12,6 +12,6 @@ public:
 	virtual void OnExit(int newState) = 0;
 
 protected:
-	
+	int m_state;
 };
 

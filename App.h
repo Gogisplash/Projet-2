@@ -13,12 +13,21 @@ public:
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
 	Game* GetGame() { return &m_game; }
+	Menu* GetMenu() { return &m_menu; }
 	
 	bool HasWindow();
 	void Render();
 
+	void ToPhase(int phase);
+
+	void Quit() { m_running = false; } // Option quitter de l'écran
+
+	bool m_running;
+
+
 	// Création des classes de Texture avec SFML
 
+	sf::Texture m_texMenu;
 	sf::Texture m_texGround;
 	sf::Texture m_texBack;
 
@@ -28,6 +37,7 @@ protected:
 	RenderTexture m_rt;
 	Sprite m_sprite;
 
+	Menu m_menu;
 	Game m_game;
 
 	Phase* m_pPhase;

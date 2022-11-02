@@ -20,7 +20,20 @@ void App::Init(HINSTANCE hInstance)
 	// Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 
-	
+
+	// Phases
+
+	m_menu.Init();
+	m_game.Init();
+
+	// Render Target
+	m_rt.create(WNDSIZE_W, WNDSIZE_H);
+	m_sprite.setTexture(m_rt.getTexture());
+
+	// Textures
+
+	LoadTextures();
+
 }
 
 void App::Uninit()
@@ -54,7 +67,11 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
+	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
+
+	m_sprite.setTexture(m_texMenu);
+	//m_sprite.setScale(100.0f, 100.0f);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -83,14 +100,34 @@ bool App::HasWindow()
 		}
 	}
 
+	Render();
+
 	return true;
+}
+
+void App::ToPhase(int phase)
+{
+	switch (phase)
+	{
+	case Phase::MENU:
+		m_pPhase = &m_menu;
+		break;
+	case Phase::GAME:
+		m_pPhase = &m_game;
+		m_pPhase->ToState(STATE_GAME_START);
+		break;
+	}
 }
 
 void App::Render()
 {
 
+
 	// Clear
 	m_rt.clear();
+
+	// Draw
+	//m_pPhase->OnRender(m_rt);
 
 	// Window
 
