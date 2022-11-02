@@ -12,8 +12,8 @@ Controller::~Controller()
 
 void Controller::Reset()
 {
-	m_back = NONE;
 	m_start = NONE;
+	m_attack = NONE;
 
 	m_up = false;
 	m_down = false;
@@ -44,7 +44,7 @@ int Controller::GetKey(int key, bool press)
 void Controller::OnUpdate()
 {
 	m_start = GetKey(m_start, sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
-	m_back = GetKey(m_back, sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
+	m_attack = GetKey(m_attack, sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
 	m_up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
 	m_down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
 	m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);

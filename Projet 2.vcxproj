@@ -172,6 +172,7 @@
   <ItemGroup>
     <Image Include="Projet 2.ico" />
     <Image Include="ressource\Main Characters\Virtual Guy\Idle (32x32).png" />
+    <Image Include="ressource\Terrain\Terrain (16x16).png" />
     <Image Include="res\Texture\ground.png" />
     <Image Include="res\Texture\menu.png" />
     <Image Include="small.ico" />
