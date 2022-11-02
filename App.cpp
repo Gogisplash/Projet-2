@@ -34,6 +34,44 @@ void App::Uninit()
 	//m_game.Uninit();
 }
 
+BYTE* App::GetResource(const char* resType, int id, int& size)
+{
+	BYTE* data = NULL;
+	HRSRC hs = FindResourceA(m_hInstance, MAKEINTRESOURCEA(id), resType);
+	if (hs)
+	{
+		HGLOBAL hgBuf = LoadResource(m_hInstance, hs);
+		if (hgBuf)
+		{
+			LPBYTE adBuf = (LPBYTE)LockResource(hgBuf);
+			if (adBuf)
+			{
+				size = SizeofResource(m_hInstance, hs);
+				data = new BYTE[size];
+				memcpy(data, adBuf, size);
+				UnlockResource(hgBuf);
+			}
+			FreeResource(hgBuf);
+		}
+	}
+	return data;
+}
+
+void App::LoadTextures()
+{
+}
+
+bool App::LoadTextureFromResource(sf::Texture& texture, int id)
+{
+	int size;
+	BYTE* data = GetResource("PNG", id, size);
+	if (data == NULL)
+		return false;
+	bool result = texture.loadFromMemory(data, size);
+	delete[] data;
+	return result;
+}
+
 bool App::HasWindow()
 {
 	if (m_window.isOpen() == false)
@@ -103,3 +141,4 @@ void App::Render()
 	m_window.draw(m_sprite);
 	m_window.display();
 }
+
