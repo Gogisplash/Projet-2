@@ -14,10 +14,10 @@
 
 #include "Resource.h"
 
-#define WNDSIZE_U							1000
-#define WNDSIZE_F							1000.0f
-#define GRIDSIZE							100.0f
+#define WNDSIZE_H							900
+#define WNDSIZE_W							1600
 
+using namespace sf;
 using namespace std; 
 
 #include "Global.h"
