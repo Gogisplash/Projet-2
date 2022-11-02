@@ -4,13 +4,6 @@ class Phase :
     public State
 {
 public:
-	enum
-	{
-		NONE,
-		MENU,
-		GAME,
-		SCORE
-	};
 
 public:
 	Phase();
