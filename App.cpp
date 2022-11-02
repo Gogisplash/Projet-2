@@ -22,14 +22,16 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(sf::VideoMode(WNDSIZE_U, WNDSIZE_U), "Platform", sf::Style::Close);
-	sf::View view = m_window.getDefaultView();
-	view.setSize(WNDSIZE_F, -WNDSIZE_F);
-	m_window.setView(view);
+	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	// Activation du vsync
+	m_window.setVerticalSyncEnabled(true);
+	//sf::View view = m_window.getDefaultView();
+	//view.setSize(WNDSIZE_F, -WNDSIZE_F);
+	//m_window.setView(view);
 
-	// Render Target
-	m_rt.create(WNDSIZE_U, WNDSIZE_U);
-	m_sprite.setTexture(m_rt.getTexture());
+	//// Render Target
+	//m_rt.create(WNDSIZE_U, WNDSIZE_U);
+	//m_sprite.setTexture(m_rt.getTexture());
 
 	// Textures
 	//LoadTextures();

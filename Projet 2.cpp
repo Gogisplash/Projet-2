@@ -14,25 +14,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     _CrtMemCheckpoint(&memStateInit);
 #endif
 
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (window.isOpen())
-     {
-            sf::Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == sf::Event::Closed)
-                    window.close();
-            }
-
-            window.clear();
-            window.draw(shape);
-            window.display();
-     }
-
-    /*g_pApp = new App;
+    g_pApp = new App;
     g_pApp->Init(hInstance);
     while (g_pApp->HasWindow())
     {
@@ -43,7 +25,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
         }
     }
     g_pApp->Uninit();
-    delete g_pApp;*/
+    delete g_pApp;
 
 
 #ifdef _DEBUG
