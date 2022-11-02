@@ -25,6 +25,10 @@ public:
 	void Update();
 	void Render();
 
+	// Création des classes de Texture avec SFML
+
+	sf::Texture m_texBack;
+
 protected:
 	HINSTANCE m_hInstance;
 	DWORD m_sysTime;

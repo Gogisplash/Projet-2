@@ -78,13 +78,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
-	/*LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texBack, IDB_TEXTURE_BACK);
-	LoadTextureFromResource(m_texPlayerLevels[0], IDB_TEXTURE_PLAYERLV1);
-	LoadTextureFromResource(m_texPlayerLevels[1], IDB_TEXTURE_PLAYERLV2);
-	LoadTextureFromResource(m_texPlayerLevels[2], IDB_TEXTURE_PLAYERLV3);
-	LoadTextureFromResource(m_texPlayerLevels[3], IDB_TEXTURE_PLAYERLV4);
-	LoadTextureFromResource(m_texPlayerLevels[4], IDB_TEXTURE_PLAYERLV5);*/
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
