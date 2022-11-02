@@ -1,19 +1,23 @@
 #pragma once
 
-class Game :
-    public Phase
+class Game : public Phase
 {
 public:
     Game();
     virtual ~Game();
 
-    void Init();
-    void Uninit();
-
     virtual int GetID() { return GAME; }
 
-    //EntityManager* GetManager() { return &m_manager; }
-    Player* GetPlayer() { return &m_player; }
+    void Init();
+    void Uninit();
+    void Start();
+    void LoadLevel();
+
+    void UpdateUI();
+
+    void Score(int score);
+
+    void ExecutePlay();
 
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
@@ -22,7 +26,6 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-    //EntityManager m_manager;
-    Player m_player;
+    sf::Sprite m_sprite;
 };
 

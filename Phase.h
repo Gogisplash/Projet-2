@@ -1,15 +1,14 @@
 #pragma once
 
-class Phase :
-    public State
+class Phase : public State
 {
 public:
 	enum
 	{
 		NONE,
-		MENU,
-		GAME
+		GAME,
 	};
+
 public:
 	Phase();
 	virtual ~Phase();

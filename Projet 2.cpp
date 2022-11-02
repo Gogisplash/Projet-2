@@ -18,7 +18,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     g_pApp->Init(hInstance);
     while (g_pApp->HasWindow())
     {
-        
+       
     }
     g_pApp->Uninit();
     delete g_pApp;
