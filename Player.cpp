@@ -23,7 +23,10 @@ void Player::Mouvement()
 	float time = GetApp()->GetTime();
 	float elapsed = GetApp()->GetElapsedTime();
 	if (GetController()->Right())
+	{
 		m_pPlayer->AddX(m_speed * elapsed);
+	}
+		
 	if (GetController()->Left())
 		m_pPlayer->AddX(-m_speed * elapsed);
 	if (GetController()->Up())

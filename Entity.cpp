@@ -71,9 +71,13 @@ void Entity::SetTexture(Texture& texture)
 }
 void Entity::UpdateAnimation()
 {
-	int frameX = 0;
+	/*int frameX = 0;
 	int frameY = 0;
-	
-	m_sprite->setTextureRect(IntRect(frameX, frameY, 32, 32));
+	for (int i; i <= 11; i + 1)
+	{
+		frameX += 32;
+		frameY += 32;
+		m_sprite->setTextureRect(IntRect(frameX, frameY, 32, 32));
+	}*/
 }
 
