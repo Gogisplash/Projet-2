@@ -129,5 +129,11 @@
     <Image Include="res\Texture\menu.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="ressource\Main Characters\Virtual Guy\Idle (32x32).png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ressource\Front\poorFront.ttf" />
   </ItemGroup>
 </Project>

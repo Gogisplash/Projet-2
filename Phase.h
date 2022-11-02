@@ -7,7 +7,7 @@ public:
 	{
 		NONE,
 		MENU,
-		GAME,
+		GAME
 	};
 
 public:

@@ -13,5 +13,6 @@ public:
 
 protected:
 	int m_state;
+	float m_stateTime;
 };
 

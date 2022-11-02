@@ -11,13 +11,10 @@ public:
     void Init();
     void Uninit();
     void Start();
-    void LoadLevel();
-
-    void UpdateUI();
-
-    void Score(int score);
-
-    void ExecutePlay();
+  
+   
+    Entity_manager* GetManager() { return &m_manager; }
+    Player* GetPlayer() { return &m_player; }
 
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
@@ -26,6 +23,8 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-    sf::Sprite m_sprite;
+    Sprite m_sprite;
+    Entity_manager m_manager;
+    Player m_player;
 };
 

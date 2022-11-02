@@ -7,15 +7,22 @@
 
 #include "targetver.h"
 #include <windows.h>
+#include <iostream>
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-
+#include <vector>
+#include <set>
 #include "Resource.h"
 
 #define WNDSIZE_H							900
 #define WNDSIZE_W							1600
+#define RAD2DEG(r)							((r)*57.29577951f)
+
+#define STATE_GAME_START					1
+#define STATE_GAME_PLAY						2
+
 
 #define STATE_GAME_START					1
 #define STATE_GAME_PLAY						2

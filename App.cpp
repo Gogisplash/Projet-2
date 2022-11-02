@@ -3,10 +3,39 @@
 App::App()
 {
 	
+	m_lastUpdate = 0.0f;
+	m_pPhase = NULL;
 }
 
 App::~App()
 {
+}
+
+// Chargement de la police si elle est bien chargée
+void App::LoadFont()
+{
+	// Chargement Font
+	if (font.loadFromFile("ressource/Front/poorFront.ttf") == false)
+	{
+		// Check que la police est chargée
+		cout << "Erreur chargement font !" << endl;
+	}
+	// Création d'un texte
+	sf::Text m_txt;
+}
+
+void App::SetText(sf::Text& txt, String str)
+{
+	// Indication de la bonne police
+	txt.setFont(font);
+	// chaine de string
+	txt.setString(str);
+	// On indique la taille
+	txt.setCharacterSize(26);
+	// On donne la couleur
+	txt.setFillColor(sf::Color::Cyan);
+	// Modif du style
+	txt.setStyle(Text::Bold | Text::Underlined);
 }
 
 void App::Init(HINSTANCE hInstance)
@@ -14,32 +43,30 @@ void App::Init(HINSTANCE hInstance)
 	// App
 	m_hInstance = hInstance;
 
+	// Time
+	m_sysTime = timeGetTime();
+	m_elapsedTime = 0.0f;
+	m_time = 0.0f;
+
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
-
-	// Activation du vsync
+	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
+	// On règle toutes les propriétés
+	//SetText(txt, "Mon texte !"); Ecrire un texte
 
-
-	// Phases
-
-	m_menu.Init();
-	m_game.Init();
-
-	// Render Target
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
 	m_sprite.setTexture(m_rt.getTexture());
 
-	// Textures
-
 	LoadTextures();
 
+
+	ToPhase(Phase::GAME);
 }
+
 
 void App::Uninit()
 {
-	//m_menu.Uninit();
-	//m_game.Uninit();
 }
 
 BYTE* App::GetResource(const char* resType, int id, int& size)
@@ -72,6 +99,7 @@ void App::LoadTextures()
 
 	m_sprite.setTexture(m_texMenu);
 	//m_sprite.setScale(100.0f, 100.0f);
+	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -87,6 +115,7 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 
 bool App::HasWindow()
 {
+	//--------------
 	if (m_window.isOpen() == false)
 		return false;
 
@@ -99,9 +128,24 @@ bool App::HasWindow()
 			return false;
 		}
 	}
+	
+	return true;
+}
 
-	Render();
+bool App::UpdateTime()
+{
+	// System time
+	DWORD newSysTime = timeGetTime();
+	DWORD elapsedSysTime = newSysTime - m_sysTime;
+	if (elapsedSysTime < 5) // 200 fps max
+		return false;
+	m_sysTime = newSysTime;
+	if (elapsedSysTime > 40) // 25 fps min
+		elapsedSysTime = 40;
 
+	// App time
+	m_elapsedTime = elapsedSysTime / 1000.0f;
+	m_time += m_elapsedTime;
 	return true;
 }
 
@@ -127,11 +171,26 @@ void App::Render()
 	m_rt.clear();
 
 	// Draw
-	//m_pPhase->OnRender(m_rt);
+	m_pPhase->OnRender(m_rt);
 
 	// Window
+	//m_window.draw(m_sprite);
 
+	//m_window.clear(Color::Red);
 	m_window.draw(m_sprite);
 	m_window.display();
+
+
 }
 
+void App::Update()
+{
+	// Controller
+	m_controller.OnUpdate();
+
+	// Phase (state update)
+	m_pPhase->OnExecute();
+
+	// Phase (main update)
+	m_pPhase->OnUpdate();
+}

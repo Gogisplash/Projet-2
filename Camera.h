@@ -5,5 +5,10 @@ class Camera :
 {
     Camera();
     virtual ~Camera();
+
+    virtual void OnEnter(int oldState);
+    virtual void OnExecute();
+    virtual void OnExit(int newState);
+    
 };
 
