@@ -1,5 +1,4 @@
 #include "framework.h"
-#include <iostream>
 
 //const sf::Color sf::Color::Cyan;
 //const sf::Color sf::Color::Black;
@@ -7,7 +6,7 @@
 // Protopytes
 void LoadFont();
 
-void SetText(sf::Text& txt);
+void SetText(sf::Text &txt, String str);
 
 sf::Font font;
 
@@ -23,9 +22,6 @@ App::~App()
 
 void App::Init(HINSTANCE hInstance)
 {
-	// App
-	m_hInstance = hInstance;
-
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 
@@ -34,11 +30,7 @@ void App::Init(HINSTANCE hInstance)
 
 }
 
-void App::Uninit()
-{
-	//m_menu.Uninit();
-	//m_game.Uninit();
-}
+void App::Uninit(){}
 
 bool App::HasWindow()
 {
@@ -47,7 +39,7 @@ bool App::HasWindow()
 	// Création d'un texte
 	sf::Text txt;
 	// On règle toutes les propriétés
-	SetText(txt);
+	SetText(txt, "Mon texte !");
 
 
 	//--------------
@@ -78,16 +70,20 @@ bool App::HasWindow()
 void LoadFont()
 {
 	if (font.loadFromFile("x64/Debug/res/poorFront.ttf") == false)
+	{
+		//assert(0);
 		// Check que la police est chargée
 		cout << "Erreur chargement font !" << endl;
+		//WriteConsoleOutputW()
+	}
 }
 
-void SetText(sf::Text& txt)
+void SetText(sf::Text &txt, String str )
 {
 	// Indication de la bonne police
 	txt.setFont(font);
 	// chaine de string
-	txt.setString("Hellooooo !");
+	txt.setString(str);
 	// On indique la taille
 	txt.setCharacterSize(26);
 	// On donne la couleur
