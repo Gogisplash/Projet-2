@@ -4,7 +4,12 @@ class Phase :
     public State
 {
 public:
-
+	enum
+	{
+		NONE,
+		MENU,
+		GAME
+	};
 public:
 	Phase();
 	virtual ~Phase();
