@@ -3,11 +3,11 @@
 class App;
 //class Controller;
 class Game;
-//class EntityManager;
+class Entity_manager;
 //class Player;
 //
 App* GetApp();
 //Controller* GetController();
 Game* GetGame();
-//EntityManager* GetManager();
+Entity_manager* GetManager();
 //Player* GetPlayer();

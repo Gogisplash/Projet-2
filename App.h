@@ -17,6 +17,8 @@ public:
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
 	Game* GetGame() { return &m_game; }
+	Entity_manager* GetManager() { return m_game.GetManager(); }
+
 	bool HasWindow();
 
 	void ToPhase(int phase);
@@ -33,7 +35,7 @@ public:
 
 protected:
 	HINSTANCE m_hInstance;
-	DWORD m_sysTime;
+	//DWORD m_sysTime;
 	RenderWindow m_window;
 	RenderTexture m_rt;
 	Sprite m_sprite;

@@ -13,7 +13,7 @@ public:
     void Start();
   
    
-
+    Entity_manager* GetManager() { return &m_manager; }
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
     virtual void OnExit(int newState);
@@ -21,8 +21,8 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-    //Sprite m_sprite;
-    //EntityManager m_manager;
+    Sprite m_sprite;
+    Entity_manager m_manager;
     Player m_player;
 };
 

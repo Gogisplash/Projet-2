@@ -17,10 +17,10 @@ Game* GetGame()
 	return g_pApp->GetGame();
 }
 //
-//EntityManager* GetManager()
-//{
-//	return g_pApp->GetManager();
-//}
+Entity_manager* GetManager()
+{
+	return g_pApp->GetManager();
+}
 //
 //Player* GetPlayer()
 //{

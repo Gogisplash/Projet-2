@@ -47,15 +47,15 @@ void Game::OnUpdate()
 
 
 	// Entities
-	//m_manager.OnUpdate();
+	m_manager.OnUpdate();
 }
 
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
-	//rt.draw(m_sprite);
+	rt.draw(m_sprite);
 
 	// Entities
-	//m_manager.OnRender(rt);
+	m_manager.OnRender(rt);
 
 }

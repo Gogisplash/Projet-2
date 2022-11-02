@@ -45,11 +45,13 @@ void App::Init(HINSTANCE hInstance)
 	m_window.setVerticalSyncEnabled(true);
 	// On règle toutes les propriétés
 	//SetText(txt, "Mon texte !"); Ecrire un texte
+
+	ToPhase(Phase::GAME);
 }
 
-	//Phases
-//	ToPhase(Phase::GAME);
-//}
+	
+
+
 
 void App::Uninit()
 {
