@@ -64,9 +64,6 @@ void App::Init(HINSTANCE hInstance)
 	ToPhase(Phase::GAME);
 }
 
-	
-
-
 
 void App::Uninit()
 {
