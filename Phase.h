@@ -1,9 +1,13 @@
 #pragma once
 
-class Phase :
-    public State
+class Phase : public State
 {
 public:
+	enum
+	{
+		NONE,
+		GAME,
+	};
 
 public:
 	Phase();

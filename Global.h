@@ -1,13 +1,13 @@
 #pragma once
 
-//class App;
+class App;
 //class Controller;
-//class Game;
+class Game;
 //class EntityManager;
 //class Player;
 //
-//App* GetApp();
+App* GetApp();
 //Controller* GetController();
-//Game* GetGame();
+Game* GetGame();
 //EntityManager* GetManager();
 //Player* GetPlayer();

@@ -123,5 +123,8 @@
     <Image Include="Projet 2.ico">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="res\Texture\ground.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

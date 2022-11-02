@@ -1,21 +1,21 @@
 #include "framework.h"
 
-//extern App* g_pApp;
-//
-//App* GetApp()
-//{
-//	return g_pApp;
-//}
+extern App* g_pApp;
+
+App* GetApp()
+{
+	return g_pApp;
+}
 
 //Controller* GetController()
 //{
 //	return g_pApp->GetController();
 //}
 //
-//Game* GetGame()
-//{
-//	return g_pApp->GetGame();
-//}
+Game* GetGame()
+{
+	return g_pApp->GetGame();
+}
 //
 //EntityManager* GetManager()
 //{
