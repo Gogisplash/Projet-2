@@ -1,8 +1,20 @@
 #include "framework.h"
+#include <iostream>
+
+//const sf::Color sf::Color::Cyan;
+//const sf::Color sf::Color::Black;
+
+// Protopytes
+void LoadFont();
+
+void SetText(sf::Text& txt);
+
+sf::Font font;
 
 App::App()
 {
-	
+	m_hInstance = NULL;
+	m_pPhase = NULL;
 }
 
 App::~App()
@@ -14,14 +26,12 @@ void App::Init(HINSTANCE hInstance)
 	// App
 	m_hInstance = hInstance;
 
-
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 
-	// Activation du vsync
+	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 
-	
 }
 
 void App::Uninit()
@@ -30,47 +40,17 @@ void App::Uninit()
 	//m_game.Uninit();
 }
 
-BYTE* App::GetResource(const char* resType, int id, int& size)
-{
-	BYTE* data = NULL;
-	HRSRC hs = FindResourceA(m_hInstance, MAKEINTRESOURCEA(id), resType);
-	if (hs)
-	{
-		HGLOBAL hgBuf = LoadResource(m_hInstance, hs);
-		if (hgBuf)
-		{
-			LPBYTE adBuf = (LPBYTE)LockResource(hgBuf);
-			if (adBuf)
-			{
-				size = SizeofResource(m_hInstance, hs);
-				data = new BYTE[size];
-				memcpy(data, adBuf, size);
-				UnlockResource(hgBuf);
-			}
-			FreeResource(hgBuf);
-		}
-	}
-	return data;
-}
-
-void App::LoadTextures()
-{
-	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
-}
-
-bool App::LoadTextureFromResource(sf::Texture& texture, int id)
-{
-	int size;
-	BYTE* data = GetResource("PNG", id, size);
-	if (data == NULL)
-		return false;
-	bool result = texture.loadFromMemory(data, size);
-	delete[] data;
-	return result;
-}
-
 bool App::HasWindow()
 {
+	// Chargement Font
+	LoadFont();
+	// Création d'un texte
+	sf::Text txt;
+	// On règle toutes les propriétés
+	SetText(txt);
+
+
+	//--------------
 	if (m_window.isOpen() == false)
 		return false;
 
@@ -83,21 +63,35 @@ bool App::HasWindow()
 			return false;
 		}
 	}
+	// Couleur de la fenêtre
+	m_window.clear(sf::Color::Black);
 
+	// Dessiner à l'écran
+	m_window.draw(txt);
+
+	// Dessiner à l'écran tout les  éléments
+	m_window.display();
 	return true;
 }
 
-void App::Render()
+// Chargement de la police si elle est bien chargée
+void LoadFont()
 {
-
-	// Clear
-	m_rt.clear();
-
-	// Draw
-	m_pPhase->OnRender(m_rt);
-
-	// Window
-	m_window.draw(m_sprite);
-	m_window.display();
+	if (font.loadFromFile("x64/Debug/res/poorFront.ttf") == false)
+		// Check que la police est chargée
+		cout << "Erreur chargement font !" << endl;
 }
 
+void SetText(sf::Text& txt)
+{
+	// Indication de la bonne police
+	txt.setFont(font);
+	// chaine de string
+	txt.setString("Hellooooo !");
+	// On indique la taille
+	txt.setCharacterSize(26);
+	// On donne la couleur
+	txt.setFillColor(sf::Color::Cyan);
+	// Modif du style
+	txt.setStyle(Text::Bold | Text::Underlined);
+}
