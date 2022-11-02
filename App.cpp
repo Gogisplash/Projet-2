@@ -114,7 +114,7 @@ bool App::HasWindow()
 	m_window.clear(sf::Color::Black);
 
 	// Dessiner à l'écran
-	//m_window.draw(txt);
+	//m_window.draw(txt); Tout les textes a dessiner sont forcemment a faire ici
 
 	// Dessiner à l'écran tout les  éléments
 	m_window.display();
