@@ -1,15 +1,5 @@
 #include "framework.h"
 
-//const sf::Color sf::Color::Cyan;
-//const sf::Color sf::Color::Black;
-
-// Protopytes
-void LoadFont();
-
-void SetText(sf::Text &txt, String str);
-
-sf::Font font;
-
 App::App()
 {
 	m_hInstance = NULL;
@@ -20,29 +10,50 @@ App::~App()
 {
 }
 
+// Chargement de la police si elle est bien chargée
+void App::LoadFont()
+{
+	// Chargement Font
+	if (font.loadFromFile("ressource/Front/poorFront.ttf") == false)
+	{
+		// Check que la police est chargée
+		cout << "Erreur chargement font !" << endl;
+	}
+	// Création d'un texte
+	sf::Text m_txt;
+}
+
+void App::SetText(sf::Text& txt, String str)
+{
+	// Indication de la bonne police
+	txt.setFont(font);
+	// chaine de string
+	txt.setString(str);
+	// On indique la taille
+	txt.setCharacterSize(26);
+	// On donne la couleur
+	txt.setFillColor(sf::Color::Cyan);
+	// Modif du style
+	txt.setStyle(Text::Bold | Text::Underlined);
+}
+
 void App::Init(HINSTANCE hInstance)
 {
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
-
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
+	// On règle toutes les propriétés
+	//SetText(txt, "Mon texte !"); Ecrire un texte
+}
+
+void App::Uninit()
+{
 
 }
 
-void App::Uninit(){}
-
 bool App::HasWindow()
 {
-	// Chargement Font
-	LoadFont();
-	// Création d'un texte
-	sf::Text txt;
-	// On règle toutes les propriétés
-	SetText(txt, "Mon texte !");
-
-
-	//--------------
 	if (m_window.isOpen() == false)
 		return false;
 
@@ -59,35 +70,9 @@ bool App::HasWindow()
 	m_window.clear(sf::Color::Black);
 
 	// Dessiner à l'écran
-	m_window.draw(txt);
+	//m_window.draw(txt);
 
 	// Dessiner à l'écran tout les  éléments
 	m_window.display();
 	return true;
-}
-
-// Chargement de la police si elle est bien chargée
-void LoadFont()
-{
-	if (font.loadFromFile("x64/Debug/res/poorFront.ttf") == false)
-	{
-		//assert(0);
-		// Check que la police est chargée
-		cout << "Erreur chargement font !" << endl;
-		//WriteConsoleOutputW()
-	}
-}
-
-void SetText(sf::Text &txt, String str )
-{
-	// Indication de la bonne police
-	txt.setFont(font);
-	// chaine de string
-	txt.setString(str);
-	// On indique la taille
-	txt.setCharacterSize(26);
-	// On donne la couleur
-	txt.setFillColor(sf::Color::Cyan);
-	// Modif du style
-	txt.setStyle(Text::Bold | Text::Underlined);
 }

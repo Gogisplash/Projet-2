@@ -130,4 +130,7 @@
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="ressource\Front\poorFront.ttf" />
+  </ItemGroup>
 </Project>

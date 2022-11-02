@@ -175,6 +175,9 @@
     <Image Include="res\Texture\ground.png" />
     <Image Include="small.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="ressource\Front\poorFront.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
