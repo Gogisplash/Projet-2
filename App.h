@@ -31,6 +31,7 @@ public:
 	sf::Font font;
 	Texture m_texGround;
 	Texture m_texPlayer;
+	Text m_text;
 	string m_txt;
 
 protected:

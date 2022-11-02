@@ -10,17 +10,17 @@ App::~App()
 {
 }
 
-// Chargement de la police si elle est bien chargée
-void App::LoadFont()
+void App::Init(HINSTANCE hInstance)
 {
-	// Chargement Font
-	if (font.loadFromFile("ressource/Front/poorFront.ttf") == false)
-	{
-		// Check que la police est chargée
-		cout << "Erreur chargement font !" << endl;
-	}
-	// Création d'un texte
-	sf::Text m_txt;
+	// Window
+	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	//Activation du vsync
+	m_window.setVerticalSyncEnabled(true);
+	// On règle toutes les propriétés
+	//m_text
+	SetText(m_text, "Mon texte !"); //Ecrire un texte
+
+	ToPhase(Phase::GAME);
 }
 
 void App::SetText(sf::Text& txt, String str)
@@ -37,20 +37,18 @@ void App::SetText(sf::Text& txt, String str)
 	txt.setStyle(Text::Bold | Text::Underlined);
 }
 
-void App::Init(HINSTANCE hInstance)
+// Chargement de la police si elle est bien chargée
+void App::LoadFont()
 {
-	// Window
-	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
-	//Activation du vsync
-	m_window.setVerticalSyncEnabled(true);
-	// On règle toutes les propriétés
-	//SetText(txt, "Mon texte !"); Ecrire un texte
-
-	ToPhase(Phase::GAME);
-}
-
+	// Chargement Font
+	if (font.loadFromFile("ressource/Front/poorFront.ttf") == false)
+	{
+		// Check que la police est chargée
+		cout << "Erreur chargement font !" << endl;
+	}
+	// Création d'un texte
 	
-
+}
 
 
 void App::Uninit()
