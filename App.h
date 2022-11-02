@@ -17,6 +17,7 @@ public:
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
 	Game* GetGame() { return &m_game; }
+	Controller* GetController() { return &m_controller; }
 	Entity_manager* GetManager() { return m_game.GetManager(); }
 
 	bool HasWindow();
