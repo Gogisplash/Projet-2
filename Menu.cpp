@@ -16,8 +16,7 @@ void Menu::Init()
     m_sprite.setTexture(GetApp()->m_texMenu);
     m_font.loadFromFile("C:\\Windows\\Fonts\\verdana.ttf");
 
-    ToState(STATE_MAIN);
-
+    //ToState(STATE_MAIN);
 }
 
 void Menu::Uninit()
@@ -49,10 +48,10 @@ void Menu::OnEnter(int oldState)
         //Menu
         m_menu[0].setFont(m_font);
         m_menu[0].setFillColor(sf::Color::Red);
-        m_menu[0].setCharacterSize(30);
+        m_menu[0].setCharacterSize(300);
         m_menu[0].setStyle(sf::Text::Bold);
         m_menu[0].setString("Start Game");
-        m_menu[0].setPosition(sf::Vector2f(300 / 2, 1800 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+        //m_menu[0].setPosition(sf::Vector2f(300 / 2, 1800 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
         m_menu[1].setFont(m_font);
         m_menu[1].setFillColor(sf::Color::White);

@@ -60,8 +60,10 @@ void App::Init(HINSTANCE hInstance)
 
 	LoadTextures();
 
+	m_menu.Init();
 
-	ToPhase(Phase::GAME);
+	//ToPhase(Phase::GAME);
+	ToPhase(Phase::MENU);
 }
 
 
@@ -155,6 +157,7 @@ void App::ToPhase(int phase)
 	{
 	case Phase::MENU:
 		m_pPhase = &m_menu;
+		m_pPhase->ToState(Menu::STATE_MAIN);
 		break;
 	case Phase::GAME:
 		m_pPhase = &m_game;
@@ -179,8 +182,6 @@ void App::Render()
 	//m_window.clear(Color::Red);
 	m_window.draw(m_sprite);
 	m_window.display();
-
-
 }
 
 void App::Update()
