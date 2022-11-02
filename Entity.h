@@ -25,7 +25,7 @@ public:
 
 	void SetTexture(sf::Texture& texture);
 	void UpdateAnimation();
-	/*Sprite* GetSprite() { return m_sprite; }*/
+	Sprite* GetSprite() { return m_sprite; }
 
 protected:
 
