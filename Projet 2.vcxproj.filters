@@ -123,5 +123,14 @@
     <Image Include="Projet 2.ico">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="ressource\Background\Brown.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="ressource\Main Characters\Ninja Frog\Idle (32x32).png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="ressource\Main Characters\Virtual Guy\Idle (32x32).png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

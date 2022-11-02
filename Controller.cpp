@@ -9,12 +9,6 @@ Controller::~Controller()
 {
 }
 
-void Controller::OnUpdate()
-{
-	
-
-}
-
 void Controller::Reset()
 {
 	m_back = NONE;

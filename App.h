@@ -34,5 +34,8 @@ protected:
 	Controller m_controller;
 	Game m_game;
 	Phase* m_pPhase;
+
+public:
+	Texture m_texBackground;
 };
 

@@ -29,8 +29,8 @@ using namespace std;
 #include "Camera.h"
 #include "Enemy.h"
 #include "Keys.h"
+#include "Player.h"
 #include "Game.h"
 #include "Menu.h"
-#include "Player.h"
 #include "App.h"
 

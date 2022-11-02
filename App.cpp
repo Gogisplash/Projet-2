@@ -59,6 +59,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
+	LoadTextureFromResource(m_texBackground, IDB_PNG1);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
