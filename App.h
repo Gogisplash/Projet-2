@@ -8,6 +8,10 @@ public:
 	void Init(HINSTANCE hInstance);
 	void Uninit();
 
+	void LoadFont();
+
+	void SetText(sf::Text& txt, String str);
+
 	BYTE* GetResource(const char* resType, int id, int& size);
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
@@ -22,8 +26,10 @@ public:
 
 	// Création des classes de Texture avec SFML
 
+	sf::Font font;
 	Texture m_texGround;
 	Texture m_texPlayer;
+	string m_txt;
 
 protected:
 	HINSTANCE m_hInstance;
