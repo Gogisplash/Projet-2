@@ -11,9 +11,9 @@ public:
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
-	Controller* GetController() { return &m_controller; }
+	/*Controller* GetController() { return &m_controller; }
 	Game* GetGame() { return &m_game; }
-	EntityManager* GetManager() { return m_game.GetManager(); }
+	EntityManager* GetManager() { return m_game.GetManager(); }*/
 
 	bool HasWindow();
 	float GetTime() { return m_time; }
@@ -38,10 +38,11 @@ protected:
 	sf::RenderTexture m_rt;
 	sf::Sprite m_sprite;
 
-	Controller m_controller;
+	/*Controller m_controller;
 	Menu m_menu;
 	Game m_game;
+	
 
-	Phase* m_pPhase;
+	Phase* m_pPhase;*/
 };
 

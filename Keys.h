@@ -3,5 +3,8 @@
 class Keys :
     public Entity
 {
+public:
+    Keys();
+    ~Keys();
 };
 

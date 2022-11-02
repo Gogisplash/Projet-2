@@ -3,5 +3,8 @@
 class Player :
     public State
 {
+public:
+    Player();
+    virtual ~Player();
 };
 

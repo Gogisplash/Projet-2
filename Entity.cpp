@@ -2,7 +2,7 @@
 
 Entity::Entity()
 {
-	m_alive = true;
+	/*m_alive = true;
 	m_health = 100;
 	m_player = false;
 	m_x = 0.0f;
@@ -14,7 +14,7 @@ Entity::Entity()
 	m_radiusSq = 0.0f;
 	
 	m_screenLimitX = 1000.0f;
-	m_screenLimitY = 1000.0f;
+	m_screenLimitY = 1000.0f;*/
 	
 	//m_type = ENEMY;
 	//GetManager()->NotifyBornEntity(this);

@@ -1,7 +1,9 @@
 #pragma once
-#include "State.h"
+
 class Camera :
     public State
 {
+    Camera();
+    virtual ~Camera();
 };
 

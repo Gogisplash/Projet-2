@@ -2,7 +2,7 @@
 
 App::App()
 {
-	m_pPhase = NULL;
+	//m_pPhase = NULL;
 	m_lastUpdate = 0.0f;
 	m_countFrame = 0.0f;
 }
@@ -118,16 +118,17 @@ bool App::HasWindow()
 
 void App::ToPhase(int phase, bool victory)
 {
-	switch (phase)
+	/*switch (phase)
 	{
 	case Phase::MENU:
 		m_pPhase = &m_menu;
 		break;
-	case Phase::GAME:
-		m_pPhase = &m_game;
-		m_pPhase->ToState(STATE_GAME_START);
-		break;
-	}
+		case Phase::GAME:
+			m_pPhase = &m_game;
+			m_pPhase->ToState(STATE_GAME_START);
+			break;
+		}
+	}*/
 }
 
 bool App::UpdateTime()
@@ -150,13 +151,13 @@ bool App::UpdateTime()
 void App::Update()
 {
 	// Controller
-	m_controller.OnUpdate();
+	//m_controller.OnUpdate();
 
 	// Phase (state update)
-	m_pPhase->OnExecute();
+	//m_pPhase->OnExecute();
 
 	// Phase (main update)
-	m_pPhase->OnUpdate();
+	//m_pPhase->OnUpdate();
 
 	//Fps
 	if (m_time - m_lastUpdate > 1)
@@ -175,7 +176,7 @@ void App::Render()
 	m_rt.clear();
 
 	// Draw
-	m_pPhase->OnRender(m_rt);
+	//m_pPhase->OnRender(m_rt);
 
 	// Window
 	m_window.draw(m_sprite);

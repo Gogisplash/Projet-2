@@ -13,7 +13,7 @@ public:
 	virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
-	bool m_alive;
+	/*bool m_alive;
 	int m_health;
 	bool m_player;
 	sf::Sprite* m_sprite;
@@ -28,6 +28,6 @@ protected:
 	float m_screenLimitX;
 	float m_screenLimitY;
 	int m_row;
-	int m_column;
+	int m_column;*/
 };
 

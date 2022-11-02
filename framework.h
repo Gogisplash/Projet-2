@@ -21,16 +21,16 @@
 using namespace std; 
 
 #include "Global.h"
+#include "State.h"
+#include "Entity.h"
 #include "App.h"
 #include "Camera.h"
 #include "Controller.h"
 #include "Enemy.h"
-#include "Entity.h"
 #include "Entity_manager.h"
 #include "Game.h"
 #include "Keys.h"
 #include "Menu.h"
 #include "Phase.h"
 #include "Player.h"
-#include "State.h"
 

@@ -1,1 +1,9 @@
-#include "Player.h"
+#include "framework.h"
+
+Player::Player()
+{
+}
+
+Player::~Player()
+{
+}

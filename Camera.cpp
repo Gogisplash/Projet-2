@@ -1,1 +1,8 @@
-#include "Camera.h"
+#include "framework.h"
+Camera::Camera()
+{
+}
+
+Camera::~Camera()
+{
+}

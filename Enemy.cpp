@@ -1,1 +1,9 @@
-#include "Enemy.h"
+#include "framework.h"
+
+Enemy::Enemy()
+{
+}
+
+Enemy::~Enemy()
+{
+}

@@ -3,5 +3,8 @@
 class Game :
     public Phase
 {
+public:
+    Game();
+    virtual ~Game();
 };
 

@@ -1,1 +1,9 @@
-#include "Entity_manager.h"
+#include "framework.h"
+
+Entity_manager::Entity_manager()
+{
+}
+
+Entity_manager::~Entity_manager()
+{
+}
