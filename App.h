@@ -12,8 +12,10 @@ public:
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
-	
+	Game* GetGame() { return &m_game; }
 	bool HasWindow();
+
+	void ToPhase(int phase);
 
 	void Render();
 	void Update();
@@ -32,6 +34,7 @@ protected:
 
 	Controller m_controller;
 	Game m_game;
+	Menu m_menu;
 
 	Phase* m_pPhase;
 };

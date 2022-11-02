@@ -28,22 +28,54 @@ void App::Init(HINSTANCE hInstance)
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 
+	//Phases
+	ToPhase(Phase::GAME);
 }
 
 void App::Uninit()
 {
 }
 
+BYTE* App::GetResource(const char* resType, int id, int& size)
+{
+	BYTE* data = NULL;
+	HRSRC hs = FindResourceA(m_hInstance, MAKEINTRESOURCEA(id), resType);
+	if (hs)
+	{
+		HGLOBAL hgBuf = LoadResource(m_hInstance, hs);
+		if (hgBuf)
+		{
+			LPBYTE adBuf = (LPBYTE)LockResource(hgBuf);
+			if (adBuf)
+			{
+				size = SizeofResource(m_hInstance, hs);
+				data = new BYTE[size];
+				memcpy(data, adBuf, size);
+				UnlockResource(hgBuf);
+			}
+			FreeResource(hgBuf);
+		}
+	}
+	return data;
+}
+
+void App::LoadTextures()
+{
+}
+
+bool App::LoadTextureFromResource(sf::Texture& texture, int id)
+{
+	int size;
+	BYTE* data = GetResource("PNG", id, size);
+	if (data == NULL)
+		return false;
+	bool result = texture.loadFromMemory(data, size);
+	delete[] data;
+	return result;
+}
+
 bool App::HasWindow()
 {
-	// Chargement Font
-	LoadFont();
-	// Création d'un texte
-	sf::Text txt;
-	// On règle toutes les propriétés
-	SetText(txt, "Mon texte !");
-
-
 	//--------------
 	if (m_window.isOpen() == false)
 		return false;
@@ -57,17 +89,23 @@ bool App::HasWindow()
 			return false;
 		}
 	}
-	// Couleur de la fenêtre
-	m_window.clear(sf::Color::Black);
-
-	// Dessiner à l'écran
-	m_window.draw(txt);
-
-	// Dessiner à l'écran tout les  éléments
-	m_window.display();
+	
 	return true;
 }
 
+void App::ToPhase(int phase)
+{
+	switch (phase)
+	{
+	case Phase::MENU:
+		m_pPhase = &m_menu;
+		break;
+	case Phase::GAME:
+		m_pPhase = &m_game;
+		//m_pPhase->ToState(STATE_GAME_START);
+		break;
+	}
+}
 
 // Chargement de la police si elle est bien chargée
 void LoadFont()
@@ -105,7 +143,9 @@ void App::Render()
 
 	// Window
 	m_window.draw(m_sprite);
+
 	m_window.display();
+	
 
 }
 
