@@ -80,7 +80,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 
 void App::LoadTextures()
 {
-	LoadTextureFromResource(m_texBack, IDB_TEXTURE_BACK);
+	//LoadTextureFromResource(m_texBack, IDB_TEXTURE_BACK);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
