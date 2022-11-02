@@ -30,7 +30,9 @@ void App::Init(HINSTANCE hInstance)
 
 }
 
-void App::Uninit(){}
+void App::Uninit()
+{
+}
 
 bool App::HasWindow()
 {
@@ -66,6 +68,7 @@ bool App::HasWindow()
 	return true;
 }
 
+
 // Chargement de la police si elle est bien chargée
 void LoadFont()
 {
@@ -90,4 +93,30 @@ void SetText(sf::Text &txt, String str )
 	txt.setFillColor(sf::Color::Cyan);
 	// Modif du style
 	txt.setStyle(Text::Bold | Text::Underlined);
+}
+
+void App::Render()
+{
+	// Clear
+	m_rt.clear();
+
+	// Draw
+	m_pPhase->OnRender(m_rt);
+
+	// Window
+	m_window.draw(m_sprite);
+	m_window.display();
+
+}
+
+void App::Update()
+{
+	// Controller
+	m_controller.OnUpdate();
+
+	// Phase (state update)
+	m_pPhase->OnExecute();
+
+	// Phase (main update)
+	m_pPhase->OnUpdate();
 }

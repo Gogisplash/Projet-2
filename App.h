@@ -12,22 +12,25 @@ public:
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
-	Game* GetGame() { return &m_game; }
 	
 	bool HasWindow();
+
 	void Render();
+	void Update();
 
 	// Création des classes de Texture avec SFML
 
-	sf::Texture m_texGround;
-	sf::Texture m_texPlayer;
+	Texture m_texGround;
+	Texture m_texPlayer;
 
 protected:
 	HINSTANCE m_hInstance;
+	DWORD m_sysTime;
 	RenderWindow m_window;
 	RenderTexture m_rt;
 	Sprite m_sprite;
 
+	Controller m_controller;
 	Game m_game;
 
 	Phase* m_pPhase;
