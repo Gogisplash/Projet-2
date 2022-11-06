@@ -36,7 +36,6 @@ public:
 
    int GetPressedItem() { return selectedItemIndex; }      // Définir le choix de l'utilisateur dans le menu et retourner son choix
 
-
 protected:
 
     int selectedItemIndex;                                  // Définir type du choix dans le menu (nombre entier)
