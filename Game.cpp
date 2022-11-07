@@ -15,11 +15,12 @@ void Game::Init()
 
 void Game::Uninit()
 {
-
+	
 }
 
 void Game::Start()
 {
+	m_tileset.Init();
 	m_player.Init();
 }
 
@@ -73,6 +74,9 @@ void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
 	rt.draw(*m_sprite.GetSprite());
+
+	//
+
 
 	// Entities
 	m_manager.OnRender(rt);

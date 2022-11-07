@@ -41,7 +41,7 @@ using namespace std;
 #include "Entity_manager.h"
 #include "Camera.h"
 #include "Controller.h"
-#include "Map.h"
+#include "TileMap.h"
 #include "Enemy.h"
 #include "Player.h"
 #include "Keys.h"
