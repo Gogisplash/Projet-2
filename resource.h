@@ -18,7 +18,7 @@
 #define IDB_TEXTURE_GROUND              129
 #define IDB_PLAYER_IDLE                 130
 #define IDR_FONT1                       131
-#define IDB_                            133
+
 #define IDB_PLAYER_RUN                  133
 #define IDB_TEXTURE_MENU                999
 #define IDC_TEXTURE_BACK                1000
