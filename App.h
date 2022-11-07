@@ -51,7 +51,7 @@ public:
 	sf::Texture m_texGround;
 	sf::Texture m_texPlayerIdle;
 	sf::Texture m_texPlayerRun;
-	
+	sf::Texture m_texTileSet;
 
 
 	sf::Font font;

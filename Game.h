@@ -15,6 +15,7 @@ public:
    
     Entity_manager* GetManager() { return &m_manager; }
     Player* GetPlayer() { return &m_player; }
+    TileMap* GetTileMap() { return &m_tileset; }
 
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
@@ -26,5 +27,6 @@ protected:
     Sprite m_sprite;
     Entity_manager m_manager;
     Player m_player;
+    TileMap m_tileset;
 };
 
