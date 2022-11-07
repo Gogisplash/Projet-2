@@ -110,7 +110,7 @@ void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
-	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+	//LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
 	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
 }
 

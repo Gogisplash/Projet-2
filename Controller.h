@@ -11,7 +11,6 @@ public:
 		PUSH,
 	};
 
-public:
 	Controller();
 	virtual ~Controller();
 
@@ -27,8 +26,6 @@ public:
 	bool Right() { return m_right; }
 
 	void OnUpdate();
-
-public:
 
 protected:
 	int m_attack;
