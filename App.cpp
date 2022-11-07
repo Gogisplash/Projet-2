@@ -2,7 +2,6 @@
 
 App::App()
 {
-	
 	m_lastUpdate = 0.0f;
 	m_pPhase = NULL;
 }
@@ -24,7 +23,7 @@ void App::LoadFont()
 	sf::Text m_txt;
 }
 
-void App::SetText(sf::Text& txt, String str)
+void App::SetText(sf::Text& txt, sf::String str)
 {
 	// Indication de la bonne police
 	txt.setFont(font);
@@ -35,7 +34,7 @@ void App::SetText(sf::Text& txt, String str)
 	// On donne la couleur
 	txt.setFillColor(sf::Color::Cyan);
 	// Modif du style
-	txt.setStyle(Text::Bold | Text::Underlined);
+	txt.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 void App::Init(HINSTANCE hInstance)
@@ -49,14 +48,14 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 	// On règle toutes les propriétés
 	//SetText(txt, "Mon texte !"); Ecrire un texte
 
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
-	m_sprite.setTexture(m_rt.getTexture());
+	m_sprite.SetTexture(m_rt.getTexture());
 
 	LoadTextures();
 
@@ -178,7 +177,8 @@ void App::Render()
 	//m_window.draw(m_sprite);
 
 	//m_window.clear(Color::Red);
-	m_window.draw(m_sprite);
+	
+	m_window.draw(*m_sprite.GetSprite());
 	m_window.display();
 }
 

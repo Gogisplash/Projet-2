@@ -31,11 +31,11 @@ void Entity::OnUpdate()
 {
 }
 
-void Entity::OnRender(RenderTexture& rt)
+void Entity::OnRender(sf::RenderTexture& rt)
 {
-	m_sprite->setPosition(m_x, m_y);
-	m_sprite->setRotation(180);
-	rt.draw(*m_sprite);
+	m_sprite->SetPosition(m_x, m_y);
+	m_sprite->SetRotation(180);
+	rt.draw(*m_sprite->GetSprite());
 }
 
 void Entity::SetPosition(float x, float y)
@@ -54,7 +54,7 @@ void Entity::AddY(float y)
 	m_y += y;
 }
 
-void Entity::SetTexture(Texture& texture)
+void Entity::SetTexture(sf::Texture& texture)
 {
 	if (m_sprite != NULL)
 	{
@@ -62,10 +62,10 @@ void Entity::SetTexture(Texture& texture)
 		delete m_sprite;
 	}
 	m_sprite = new Sprite;
-	m_sprite->setTexture(texture);
-	m_sprite->setScale(2.0f, 2.0f);
-	m_sprite->setTextureRect(IntRect(0, 0, 32, 32));
-	m_sprite->setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+	m_sprite->SetTexture(texture);
+	m_sprite->SetScale(2.0f, 2.0f);
+	m_sprite->SetTextureRect(32, 0, 0);
+	m_sprite->SetOrigin(texture);
 	m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }
