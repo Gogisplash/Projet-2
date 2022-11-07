@@ -29,13 +29,13 @@
 #define STATE_GAME_START					1
 #define STATE_GAME_PLAY						2
 
-using namespace sf;
 using namespace std; 
 
 
 #include "Global.h"
 #include "State.h"
 #include "Phase.h"
+#include "Sprite.h"
 #include "Entity.h"
 #include "Entity_manager.h"
 #include "Camera.h"

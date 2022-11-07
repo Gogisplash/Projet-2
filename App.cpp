@@ -2,7 +2,6 @@
 
 App::App()
 {
-	
 	m_lastUpdate = 0.0f;
 	m_pPhase = NULL;
 }
@@ -24,7 +23,7 @@ void App::LoadFont()
 	sf::Text m_txt;
 }
 
-void App::SetText(sf::Text& txt, String str)
+void App::SetText(sf::Text& txt, sf::String str)
 {
 	// Indication de la bonne police
 	txt.setFont(font);
@@ -35,7 +34,7 @@ void App::SetText(sf::Text& txt, String str)
 	// On donne la couleur
 	txt.setFillColor(sf::Color::Cyan);
 	// Modif du style
-	txt.setStyle(Text::Bold | Text::Underlined);
+	txt.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 void App::Init(HINSTANCE hInstance)
@@ -61,7 +60,7 @@ void App::Init(HINSTANCE hInstance)
 	//SetText(txt, "Mon texte !"); Ecrire un texte
 
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
-	m_sprite.setTexture(m_rt.getTexture());
+	m_sprite.SetTexture(m_rt.getTexture());
 
 	//Textures
 	LoadTextures();
@@ -111,10 +110,8 @@ void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
-
-	//m_sprite.setTexture(m_texMenu);
-	//m_sprite.setScale(100.0f, 100.0f);
-	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
+	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -226,7 +223,8 @@ void App::Render()
 	//m_window.draw(m_sprite);
 
 	//m_window.clear(Color::Red);
-	m_window.draw(m_sprite);
+	
+	m_window.draw(*m_sprite.GetSprite());
 	m_window.display();
 }
 
