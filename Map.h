@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
@@ -62,7 +63,7 @@ private:
     sf::Texture m_tileset;
 };
 
-/*
+
 
 int main()
 {
@@ -105,5 +106,4 @@ int main()
     }
 
     return 0
-
-*/
+    */
