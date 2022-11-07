@@ -14,7 +14,7 @@ public:
 	virtual void OnExecute();
 	virtual void OnExit(int newState);
 	virtual void OnUpdate();
-	virtual void OnRender(sf::RenderTexture& rt);
+	virtual void OnRender(RenderTexture& rt);
 
 	void SetPosition(float x, float y);
 	void AddX(float x);
@@ -23,7 +23,7 @@ public:
 
 	void SetPlayer() { m_player = true; }
 
-	void SetTexture(sf::Texture& texture);
+	void SetTexture(Texture& texture);
 	void UpdateAnimation();
 	Sprite* GetSprite() { return m_sprite; }
 

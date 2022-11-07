@@ -40,11 +40,15 @@ public:
 
 	// Création des classes de Texture avec SFML
 
-	sf::Texture m_texMenu;
-	sf::Texture m_texBack;
-	sf::Font font;
+	Texture m_texMenu;
+	Texture m_texBack;
 	Texture m_texGround;
-	Texture m_texPlayer;
+	Texture m_texPlayerIdle;
+	Texture m_texPlayerRun;
+	
+
+
+	Font font;
 	Text m_text;
 	string m_txt;
 

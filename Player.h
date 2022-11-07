@@ -9,11 +9,14 @@ public:
     void Init();
 
     void Mouvement();
+    
+    void UpdatePlayerAnimation();
 
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
     virtual void OnExit(int newState);
     virtual void OnUpdate();
+
 protected:
     Entity* m_pPlayer;
     float m_speed;

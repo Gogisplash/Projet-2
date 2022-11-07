@@ -98,10 +98,8 @@ void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
-
-	//m_sprite.setTexture(m_texMenu);
-	//m_sprite.setScale(100.0f, 100.0f);
-	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
+	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
