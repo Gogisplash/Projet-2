@@ -34,7 +34,7 @@ void Entity::OnUpdate()
 void Entity::OnRender(sf::RenderTexture& rt)
 {
 	m_sprite->SetPosition(m_x, m_y);
-	m_sprite->SetRotation(180);
+	
 	rt.draw(*m_sprite->GetSprite());
 }
 
