@@ -20,8 +20,8 @@
 #define IDR_FONT1                       131
 #define IDB_PNG3                        132
 #define IDR_WAVE_MENU                   133
-#define IDR_WAVE1                       136
-#define IDR_WAVE_CLICK1                 136
+#define IDR_WAVE_DMENU					134
+#define IDB_PLAYER_RUN					135
 #define IDB_TEXTURE_MENU                999
 #define IDC_TEXTURE_BACK                1000
 #define IDC_STATIC                      -1

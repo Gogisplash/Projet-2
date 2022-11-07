@@ -62,6 +62,12 @@ public:
 
 	sf::Music m_musicMenu;			// Musique du menu
 
+	// Création des sons et buffer via SFML 
+
+	sf::SoundBuffer bufferDMenu;  // Buffer son déplacement menu
+
+	sf::Sound m_soundDMenu;         // Son déplacement élément menu
+
 protected:
 	HINSTANCE m_hInstance;
 	DWORD m_sysTime;

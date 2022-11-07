@@ -48,7 +48,7 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
 
 	sf::View view = m_window.getDefaultView();
 	view.setSize(WNDSIZE_W, -WNDSIZE_H);

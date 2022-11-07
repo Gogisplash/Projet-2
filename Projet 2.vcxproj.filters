@@ -158,7 +158,7 @@
     <Media Include="res\Music\Menu.wav">
       <Filter>Fichiers de ressources</Filter>
     </Media>
-    <Media Include="res\Music\click1.wav">
+    <Media Include="res\Music\DMenu.wav">
       <Filter>Fichiers de ressources</Filter>
     </Media>
   </ItemGroup>
