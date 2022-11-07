@@ -14,7 +14,7 @@ void Player::Init()
 	m_pPlayer = new Entity;
 	m_pPlayer->SetPlayer();
 	m_pPlayer->SetPosition(500, 500);
-	m_pPlayer->SetTexture(GetApp()->m_texPlayer);
+	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
 	
 }
 
@@ -50,4 +50,20 @@ void Player::OnExit(int newState)
 void Player::OnUpdate()
 {
 	Mouvement();
+}
+
+void Player::UpdatePlayerAnimation()
+{
+	if (GetController()->Right())
+	{
+		
+	}
+
+	if (GetController()->Left())
+
+		if (GetController()->Up())
+
+			if (GetController()->Down())
+
+				;
 }
