@@ -187,7 +187,7 @@
     <Font Include="ressource\Front\poorFront.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="res\Music\click1.wav" />
+    <Media Include="res\Music\DMenu.wav" />
     <Media Include="res\Music\Menu.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
