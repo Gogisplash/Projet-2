@@ -15,6 +15,7 @@ public:
 	BYTE* GetResource(const char* resType, int id, int& size);
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
+	void InitTexture();
 
 	void LoadSound();
 	bool LoadSoundFromResource(sf::SoundBuffer& sound, int id);
@@ -51,8 +52,9 @@ public:
 	sf::Texture m_texGround;
 	sf::Texture m_texPlayerIdle;
 	sf::Texture m_texPlayerRun;
+	sf::Texture m_texTileSet;
 	
-
+	vector<Sprite> m_animRun;
 
 	sf::Font font;
 	sf::Text m_text;

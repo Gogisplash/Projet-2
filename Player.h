@@ -1,8 +1,16 @@
 #pragma once
-#include "State.h"
+
 class Player : public State
 {
 public:
+    enum {
+        IDLE = 0, 
+        RUN_LEFT, 
+        RUN_RIGHT, 
+        JUMPING, 
+        FALLING,
+        CRAWLING
+        };
     Player();
     virtual ~Player();
 
@@ -19,7 +27,13 @@ public:
 
 protected:
     Entity* m_pPlayer;
+    Sprite* m_sprite;
+
     float m_speed;
-    int currentframe;
+     
+    int animState;
+    Animation* m_animIdle;
+    Animation* m_animRun;
+    
 };
 

@@ -17,6 +17,8 @@ public:
 	void AddX(float x);
 	void AddY(float y);
 
+	float GetX() { return m_x; }
+	float GetY() { return m_y; }
 
 	void SetPlayer() { m_player = true; }
 

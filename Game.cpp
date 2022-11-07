@@ -64,6 +64,9 @@ void Game::OnUpdate()
 
 	// Entities
 	m_manager.OnUpdate();
+
+	
+
 }
 
 void Game::OnRender(sf::RenderTexture& rt)

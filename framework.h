@@ -36,6 +36,7 @@ using namespace std;
 #include "State.h"
 #include "Phase.h"
 #include "Sprite.h"
+#include "Animation.h"
 #include "Entity.h"
 #include "Entity_manager.h"
 #include "Camera.h"

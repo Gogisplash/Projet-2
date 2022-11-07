@@ -110,8 +110,10 @@ void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
-	//LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
 	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
+	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -124,6 +126,7 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 	delete[] data;
 	return result;
 }
+
 
 void App::LoadMusics()
 {
@@ -212,7 +215,6 @@ void App::ToPhase(int phase)
 void App::Render()
 {
 
-
 	// Clear
 	m_rt.clear();
 
@@ -220,10 +222,6 @@ void App::Render()
 	m_pPhase->OnRender(m_rt);
 
 	// Window
-	//m_window.draw(m_sprite);
-
-	//m_window.clear(Color::Red);
-	
 	m_window.draw(*m_sprite.GetSprite());
 	m_window.display();
 }

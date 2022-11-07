@@ -2,7 +2,8 @@
 
 Sprite::Sprite()
 {
-	
+	time = 0;
+	elapsedTime = 0;
 }
 
 Sprite::~Sprite()
@@ -35,14 +36,25 @@ void Sprite::SetScale(float x, float y)
 	m_sprite.setScale(x, y);
 }
 
-void Sprite::SetTextureRect(int pixels, int x, int y)
+void Sprite::SetTextureRect(sf::IntRect rect)
 {
-	m_sprite.setTextureRect(sf::IntRect(x, y, pixels, pixels));
+	m_sprite.setTextureRect(rect);
 }
 
 void Sprite::SetOrigin(sf::Texture& texture)
 {
 	m_sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+}
+
+void Sprite::Animation()
+{
+	time = GetApp()->GetTime();
+	elapsedTime = GetApp()->GetElapsedTime();
+	
+}
+void Sprite::Rotate(float angle)
+{
+	m_sprite.rotate(angle);
 }
 
 
