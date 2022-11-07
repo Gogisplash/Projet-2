@@ -6,7 +6,7 @@ public:
     {
         // State menus
 
-        STATE_MAIN = 0, 
+        STATE_MAIN = 0,     // Ecran principal (menu) initialisé à 0
         STATE_SETTINGS,
         STATE_MANUAL,
 

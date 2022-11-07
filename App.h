@@ -48,6 +48,10 @@ public:
 	Text m_text;
 	string m_txt;
 
+	// Création des musiques via SFML
+
+	//sf::Music m_musicMenu;			// Musique du menu
+
 protected:
 	HINSTANCE m_hInstance;
 	DWORD m_sysTime;

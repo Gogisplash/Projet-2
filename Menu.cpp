@@ -16,6 +16,10 @@ void Menu::Init()
     m_sprite.setTexture(GetApp()->m_texMenu);
     m_font.loadFromFile("C:\\Windows\\Fonts\\verdana.ttf");
 
+    //GetApp()->m_musicMenu.play();
+    //GetApp()->m_musicMenu.setVolume(20.f);
+    //GetApp()->m_musicMenu.setLoop(true);
+
     //ToState(STATE_MAIN);
 }
 
@@ -30,7 +34,7 @@ void Menu::UpdateButtons()
         m_menu[i].setFillColor(sf::Color::White);
     }
 
-    m_menu[selectedItemIndex].setFillColor(sf::Color::Red);
+    m_menu[selectedItemIndex].setFillColor(sf::Color::Blue);
 
 }
 
@@ -47,11 +51,11 @@ void Menu::OnEnter(int oldState)
 
         //Menu
         m_menu[0].setFont(m_font);
-        m_menu[0].setFillColor(sf::Color::Red);
-        m_menu[0].setCharacterSize(300);
+        m_menu[0].setFillColor(sf::Color::Blue);
+        m_menu[0].setCharacterSize(30);
         m_menu[0].setStyle(sf::Text::Bold);
         m_menu[0].setString("Start Game");
-        //m_menu[0].setPosition(sf::Vector2f(300 / 2, 1800 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+        m_menu[0].setPosition(sf::Vector2f(300 / 2, 950 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
         m_menu[1].setFont(m_font);
         m_menu[1].setFillColor(sf::Color::White);
@@ -132,7 +136,30 @@ void Menu::OnExit(int newState)
 
 void Menu::OnUpdate()
 {
+    //if (GetController()->Back()) // Revenir dans le menu avec echap
+    //{
+    //    ToState(STATE_MAIN);
+    //    m_sprite.setTexture(GetApp()->m_texMenu);
+    //}
 
+    if (GetController()->Up())
+    {
+        if (selectedItemIndex - 1 >= 0)
+        {
+            selectedItemIndex--;
+            UpdateButtons();
+            Sleep(200);
+        }
+    }
+    if (GetController()->Down())
+    {
+        if (selectedItemIndex + 1 < m_maxItems)
+        {
+            selectedItemIndex++;
+            UpdateButtons();
+            Sleep(200);
+        }
+    }
 }
 
 void Menu::OnRender(sf::RenderTexture& rt)

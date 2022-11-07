@@ -4,6 +4,8 @@
 
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>    // Include librairie audio SFML
+
 
 #include "targetver.h"
 #include <windows.h>

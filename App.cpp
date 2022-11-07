@@ -50,6 +50,11 @@ void App::Init(HINSTANCE hInstance)
 
 	// Window
 	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+
+	sf::View view = m_window.getDefaultView();
+	view.setSize(WNDSIZE_W, -WNDSIZE_H);
+	m_window.setView(view);
+
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 	// On règle toutes les propriétés

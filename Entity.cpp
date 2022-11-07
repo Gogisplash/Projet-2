@@ -34,7 +34,7 @@ void Entity::OnUpdate()
 void Entity::OnRender(RenderTexture& rt)
 {
 	m_sprite->setPosition(m_x, m_y);
-	m_sprite->setRotation(180);
+	//m_sprite->setRotation(180);
 	rt.draw(*m_sprite);
 }
 
