@@ -69,6 +69,9 @@
     <ClInclude Include="Map.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Projet 2.cpp">
@@ -116,6 +119,9 @@
     <ClCompile Include="Map.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Projet 2.rc">
@@ -147,5 +153,13 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="ressource\Front\poorFront.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\Music\Menu.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="res\Music\click1.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
   </ItemGroup>
 </Project>

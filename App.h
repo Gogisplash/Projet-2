@@ -10,11 +10,17 @@ public:
 
 	void LoadFont();
 
-	void SetText(sf::Text& txt, String str);
+	void SetText(sf::Text& txt, sf::String str);
 
 	BYTE* GetResource(const char* resType, int id, int& size);
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
+
+	void LoadSound();
+	bool LoadSoundFromResource(sf::SoundBuffer& sound, int id);
+
+	void LoadMusics();
+	bool LoadMusicFromResource(sf::Music& music, int id);
 
 	Game* GetGame() { return &m_game; }
 	Controller* GetController() { return &m_controller; }
@@ -40,17 +46,21 @@ public:
 
 	// Création des classes de Texture avec SFML
 
-	Texture m_texMenu;
-	Texture m_texBack;
-	Texture m_texGround;
-	Texture m_texPlayerIdle;
-	Texture m_texPlayerRun;
-	Texture m_tilseset;
+	sf::Texture m_texMenu;
+	sf::Texture m_texBack;
+	sf::Texture m_texGround;
+	sf::Texture m_texPlayerIdle;
+	sf::Texture m_texPlayerRun;
+	
 
 
-	Font font;
-	Text m_text;
+	sf::Font font;
+	sf::Text m_text;
 	string m_txt;
+
+	// Création des musiques via SFML
+
+	sf::Music m_musicMenu;			// Musique du menu
 
 protected:
 	HINSTANCE m_hInstance;
@@ -60,10 +70,10 @@ protected:
 	float m_elapsedTime;
 	float m_lastUpdate;
 
-	RenderWindow m_window;
-	RenderTexture m_rt;
-	Sprite m_sprite;
+	sf::RenderWindow m_window;
+	sf::RenderTexture m_rt;
 
+	Sprite m_sprite;
 	Controller m_controller;
 	Game m_game;
 	Menu m_menu;

@@ -10,9 +10,7 @@ Game::~Game()
 
 void Game::Init()
 {
-	// Initialisation des sprites
-
-	//m_sprite.setTexture(GetApp()->m_texBack);
+	
 }
 
 void Game::Uninit()
@@ -71,7 +69,7 @@ void Game::OnUpdate()
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
-	rt.draw(m_sprite);
+	rt.draw(*m_sprite.GetSprite());
 
 	// Entities
 	m_manager.OnRender(rt);

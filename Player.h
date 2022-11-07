@@ -20,5 +20,6 @@ public:
 protected:
     Entity* m_pPlayer;
     float m_speed;
+    int currentframe;
 };
 

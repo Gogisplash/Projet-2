@@ -7,14 +7,11 @@ public:
 	virtual ~Entity();
 
 
-	
-
-
 	virtual void OnEnter(int oldState);
 	virtual void OnExecute();
 	virtual void OnExit(int newState);
 	virtual void OnUpdate();
-	virtual void OnRender(RenderTexture& rt);
+	virtual void OnRender(sf::RenderTexture& rt);
 
 	void SetPosition(float x, float y);
 	void AddX(float x);
@@ -23,7 +20,7 @@ public:
 
 	void SetPlayer() { m_player = true; }
 
-	void SetTexture(Texture& texture);
+	void SetTexture(sf::Texture& texture);
 	void UpdateAnimation();
 	Sprite* GetSprite() { return m_sprite; }
 
