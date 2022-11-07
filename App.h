@@ -45,7 +45,7 @@ public:
 	Texture m_texGround;
 	Texture m_texPlayerIdle;
 	Texture m_texPlayerRun;
-	
+	Texture m_tilseset;
 
 
 	Font font;
