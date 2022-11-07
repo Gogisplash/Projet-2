@@ -63,7 +63,15 @@ void App::Init(HINSTANCE hInstance)
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
 	m_sprite.setTexture(m_rt.getTexture());
 
+	//Textures
 	LoadTextures();
+
+	//Musics
+
+	LoadMusics();
+
+	//Sound
+	LoadSound();
 
 	m_menu.Init();
 
@@ -118,6 +126,39 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 	bool result = texture.loadFromMemory(data, size);
 	delete[] data;
 	return result;
+}
+
+void App::LoadMusics()
+{
+	LoadMusicFromResource(m_musicMenu, IDR_WAVE_MENU);
+}
+
+bool App::LoadMusicFromResource(sf::Music& music, int id)
+{
+	int size;
+	BYTE* data = GetApp()->GetResource("WAVE", id, size);
+	if (data == NULL)
+		return false;
+	music.openFromMemory(data, size);
+	//delete[] data;
+}
+
+void App::LoadSound()
+{
+
+}
+
+bool App::LoadSoundFromResource(sf::SoundBuffer& sound, int id)
+{
+	int size;
+	BYTE* data = GetApp()->GetResource("WAVE", id, size);
+	if (data == NULL)
+		return false;
+	bool result = sound.loadFromMemory(data, size);
+	delete[] data;
+	return result;
+
+	//delete[] data;
 }
 
 bool App::HasWindow()

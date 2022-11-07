@@ -16,6 +16,12 @@ public:
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
 
+	void LoadSound();
+	bool LoadSoundFromResource(sf::SoundBuffer& sound, int id);
+
+	void LoadMusics();
+	bool LoadMusicFromResource(sf::Music& music, int id);
+
 	Game* GetGame() { return &m_game; }
 	Controller* GetController() { return &m_controller; }
 	Entity_manager* GetManager() { return m_game.GetManager(); }
@@ -50,7 +56,7 @@ public:
 
 	// Création des musiques via SFML
 
-	//sf::Music m_musicMenu;			// Musique du menu
+	sf::Music m_musicMenu;			// Musique du menu
 
 protected:
 	HINSTANCE m_hInstance;
