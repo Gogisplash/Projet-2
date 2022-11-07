@@ -1,6 +1,5 @@
 #pragma once
 
-/*
 class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
@@ -105,5 +104,4 @@ int main()
         window.display();
     }
 
-    return 0
-    */
+    return 0;
