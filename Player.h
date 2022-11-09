@@ -20,6 +20,9 @@ public:
     
     void UpdatePlayerAnimation();
 
+    float GetXplayer();
+    float GetYplayer();
+
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
     virtual void OnExit(int newState);

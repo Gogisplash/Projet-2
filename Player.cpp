@@ -26,6 +26,7 @@ void Player::Init()
 	m_animRun = new Animation(12, 20);
 	//m_pPlayer->GetSprite()->SetTextureRect(currentframe);
 	
+	
 }
 
 void Player::Mouvement()
@@ -54,12 +55,26 @@ void Player::Mouvement()
 		m_pPlayer->AddY(m_speed * elapsed);
 		this->animState = CRAWLING;
 	}
+	if (sf::Event::KeyReleased)
+	{
+
+	}
 	else
 	{
 		this->animState = IDLE;
 	}
 	m_pPlayer->AddY(m_pPlayer->GetVelocity().y * elapsed);
 	m_pPlayer->AddX(m_pPlayer->GetVelocity().x * elapsed);
+}
+
+float Player::GetXplayer()
+{
+	return m_pPlayer->GetX();
+}
+
+float Player::GetYplayer()
+{
+	return m_pPlayer->GetY();
 }
 
 void Player::OnEnter(int oldState)
