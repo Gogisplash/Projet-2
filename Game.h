@@ -28,5 +28,6 @@ protected:
     Entity_manager m_manager;
     Player m_player;
     TileMap m_tileset;
+    Physics m_physics;
 };
 

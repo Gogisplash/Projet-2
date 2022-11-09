@@ -57,4 +57,9 @@ void Sprite::Rotate(float angle)
 	m_sprite.rotate(angle);
 }
 
+void Sprite::Move(sf::Vector2f velocity)
+{
+	m_sprite.move(velocity);
+}
+
 

@@ -66,16 +66,14 @@ void Game::OnUpdate()
 	// Entities
 	m_manager.OnUpdate();
 
-	
-
+	//Physics
+	//m_physics.Update();
 }
 
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
 	rt.draw(*m_sprite.GetSprite());
-
-	//
 
 
 	// Entities

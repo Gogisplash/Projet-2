@@ -1,6 +1,6 @@
 #pragma once
 
-class Entity : public State
+class Entity : public State, public Physics
 {
 public:
 	Entity();
@@ -16,14 +16,18 @@ public:
 	void SetPosition(float x, float y);
 	void AddX(float x);
 	void AddY(float y);
+	void Move(float dir_x, float dir_y);
 
+	sf::FloatRect GetGlobalBounds();
+	void UpdateCollision();
+
+	sf::Vector2f GetVelocity() { return velocity; };
 	float GetX() { return m_x; }
 	float GetY() { return m_y; }
 
 	void SetPlayer() { m_player = true; }
 
 	void SetTexture(sf::Texture& texture);
-	void UpdateAnimation();
 	Sprite* GetSprite() { return m_sprite; }
 
 protected:

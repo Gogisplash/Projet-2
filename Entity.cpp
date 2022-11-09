@@ -29,6 +29,8 @@ void Entity::OnExit(int newState)
 
 void Entity::OnUpdate()
 {
+	Update();
+	UpdateCollision();
 }
 
 void Entity::OnRender(sf::RenderTexture& rt)
@@ -54,6 +56,33 @@ void Entity::AddY(float y)
 	m_y += y;
 }
 
+void Entity::Move(float dir_x, float dir_y)
+{
+	//Acceleration
+	velocity.x += dir_x * acceleration * GetApp()->GetElapsedTime();
+	//velocity.y += dir_y * acceleration;
+
+	//Limit velocity 
+	if (abs(velocity.x) > velocityMax)
+	{
+		velocity.x = velocityMax * ((velocity.x < 0.f) ? -1.0f : 1.0f);
+	}
+}
+
+sf::FloatRect Entity::GetGlobalBounds()
+{
+	return m_sprite->GetSprite()->getGlobalBounds();
+}
+
+void Entity::UpdateCollision()
+{
+	if (GetGlobalBounds().top + GetGlobalBounds().height > WNDSIZE_H && m_player == true)
+	{
+		ResetVelocity();
+		GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
+	}
+}
+
 void Entity::SetTexture(sf::Texture& texture)
 {
 	if (m_sprite != NULL)
@@ -65,18 +94,10 @@ void Entity::SetTexture(sf::Texture& texture)
 	m_sprite->SetTexture(texture);
 	m_sprite->SetScale(2.0f, 2.0f);
 	m_sprite->SetOrigin(texture);
-	m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
+	//m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }
-void Entity::UpdateAnimation()
-{
-	/*int frameX = 0;
-	int frameY = 0;
-	for (int i; i <= 11; i + 1)
-	{
-		frameX += 32;
-		frameY += 32;
-		m_sprite->setTextureRect(IntRect(frameX, frameY, 32, 32));
-	}*/
-}
+
+
+
 

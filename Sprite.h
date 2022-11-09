@@ -13,6 +13,7 @@ public:
 	void SetTextureRect(sf::IntRect rect);
 	void SetOrigin(sf::Texture& texture);
 	void Rotate(float angle);
+	void Move(sf::Vector2f velocity);
 
 	void Animation();
 	

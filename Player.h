@@ -31,6 +31,9 @@ protected:
 
     float m_speed;
      
+    sf::Vector2f scale_left;
+    sf::Vector2f scale_right;
+
     int animState;
     Animation* m_animIdle;
     Animation* m_animRun;
