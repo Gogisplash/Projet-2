@@ -16,7 +16,7 @@
 #include <tchar.h>
 #include <vector>
 #include <set>
-
+#include <cstdlib>
 #include "Resource.h"
 
 #define WNDSIZE_H							900

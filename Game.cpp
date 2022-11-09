@@ -66,7 +66,8 @@ void Game::OnUpdate()
 	// Entities
 	m_manager.OnUpdate();
 
-	
+	// Map
+	m_tileset.OnUpdate();
 
 }
 
@@ -75,8 +76,8 @@ void Game::OnRender(sf::RenderTexture& rt)
 	// Background
 	rt.draw(*m_sprite.GetSprite());
 
-	//
-
+	// Map
+	m_tileset.OnRender(rt);
 
 	// Entities
 	m_manager.OnRender(rt);
