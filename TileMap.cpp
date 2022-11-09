@@ -16,23 +16,31 @@ void TileMap::Init()
 
 void TileMap::OnExecute()
 {
+
 }
 
 void TileMap::OnExecuteMain()
 {
-    sf::RectangleShape test(sf::Vector2f(120, 50));
-    sf::Texture t = GetApp()->m_texTileSet;
-    test.setTexture(&t);
-    test.setTextureRect(sf::IntRect(97.1, 142.1, 97.46, 142.46));
+
 }
 
 void TileMap::OnUpdate()
 {
-    int offsetX = 100, offsetY = 100;
+
+}
+
+void TileMap::OnRender(sf::RenderTexture& rt)
+{
+
+    //int box_sizeX = 142 - 97;
+    //int box_sizeY = 110 - 65;
+
+    int box_sizeX = 90;
+    int box_sizeY = 90;
 
     sf::Vector2f previous;
 
-    int tabmap[10][20] =
+    int map[10][20] =
     {
         {0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0},
         {0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,0},
@@ -40,7 +48,7 @@ void TileMap::OnUpdate()
         {0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,1,1,0},
         {0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,0},
         {0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,1,1,0},
-        {0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0},
+        {3,3,2,3,1,3,0,1,0,1,0,0,0,0,0,0,0,1,1,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0},
         {0,1,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0}
@@ -52,44 +60,43 @@ void TileMap::OnUpdate()
     {
         for (int x = 0; x < 20; x++)
         {
-            if (tabmap[y][x] == 1)
+            if (map[y][x] == 1)
             {
-                sf::RectangleShape box(sf::Vector2f(offsetX, offsetY));
-                box.setFillColor(sf::Color::Red);
-                box.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
-                box.setOutlineThickness(1.f);
-                box.setOutlineColor(sf::Color::Black);
-                //GetApp()->m_window->draw(box);
-            };
+                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
+                sf::Texture t = GetApp()->m_texTileSet;
+                box.setTexture(&t);
+                box.setTextureRect(sf::IntRect(98, 66, 141 - 98, 109 - 66));
+                rt.draw(box);
+            }
 
-            if (tabmap[y][x] == 2)
+            if (map[y][x] == 2)
             {
-                sf::RectangleShape box(sf::Vector2f(offsetX, offsetY));
-                box.setFillColor(sf::Color::Blue);
-                box.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
-                box.setOutlineThickness(1.f);
-                box.setOutlineColor(sf::Color::Black);
-                //draw(box);
-            };
+                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
+                sf::Texture t = GetApp()->m_texTileSet;
+                box.setTexture(&t);
+                box.setTextureRect(sf::IntRect(1, 65, 46 - 1, 111 - 65));
+                rt.draw(box);
+            }
 
-            if (tabmap[y][x] == 3)
+            if (map[y][x] == 3)
             {
-                sf::RectangleShape box(sf::Vector2f(offsetX, offsetY));
-                box.setFillColor(sf::Color::Green);
-                box.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
-                box.setOutlineThickness(1.f);
-                box.setOutlineColor(sf::Color::Black);
-                //->draw(box);
-            };
+                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
+                sf::Texture t = GetApp()->m_texTileSet;
+                box.setTexture(&t);
+                box.setTextureRect(sf::IntRect(98, 130, 141 - 98, 173 - 130));
+                rt.draw(box);
+            }  
+
         }
     }
+    //sf::RectangleShape box(sf::Vector2f(offsetX, offsetY));
+    //box.setFillColor(sf::Color::Green);
+    //box.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
+    //box.setOutlineThickness(1.f);
+    //box.setOutlineColor(sf::Color::Black);
+    //window->draw(box);
 }
-
-void TileMap::OnRender(sf::RenderTexture& rt)
-{
-    
-}
-
-//sf::IntRect(10, 10, 100, 100);
-
 
