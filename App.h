@@ -58,6 +58,7 @@ public:
 
 	sf::Font font;
 	sf::Text m_text;
+	sf::View view;
 	string m_txt;
 
 	// Création des musiques via SFML

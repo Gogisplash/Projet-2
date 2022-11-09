@@ -52,6 +52,7 @@ void App::Init(HINSTANCE hInstance)
 
 	sf::View view = m_window.getDefaultView();
 	view.setSize(WNDSIZE_W, -WNDSIZE_H);
+	//m_window.setView(Camera::Get().GetView());
 	m_window.setView(view);
 
 	//Activation du vsync

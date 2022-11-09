@@ -20,6 +20,9 @@ public:
     
     void UpdatePlayerAnimation();
 
+    float GetXplayer();
+    float GetYplayer();
+
     virtual void OnEnter(int oldState);
     virtual void OnExecute();
     virtual void OnExit(int newState);
@@ -31,6 +34,9 @@ protected:
 
     float m_speed;
      
+    sf::Vector2f scale_left;
+    sf::Vector2f scale_right;
+
     int animState;
     Animation* m_animIdle;
     Animation* m_animRun;
