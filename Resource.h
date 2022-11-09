@@ -27,6 +27,8 @@
 #define IDB_TILESET                     138
 #define IDB_PNG1                        139
 #define IDB_GROUND                      139
+#define IDR_WAVE_DMENU					134
+#define IDB_PLAYER_RUN					135
 #define IDB_TEXTURE_MENU                999
 #define IDC_TEXTURE_BACK                1000
 #define IDC_STATIC                      -1
