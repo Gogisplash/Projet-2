@@ -94,6 +94,7 @@ void Player::UpdatePlayerAnimation()
 			m_animRun->Update();
 			//m_pPlayer->GetSprite()->SetScale(-2.0f, 2.0f);
 			m_pPlayer->GetSprite()->SetTextureRect(m_animRun->GetCurrentFrame());
+			t_sprite->SetOrigin((GetApp()->m_texPlayerRun));
 			m_pPlayer->GetSprite()->Rotate(180.0f);
 			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
 			

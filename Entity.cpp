@@ -64,7 +64,7 @@ void Entity::SetTexture(sf::Texture& texture)
 	m_sprite = new Sprite;
 	m_sprite->SetTexture(texture);
 	m_sprite->SetScale(2.0f, 2.0f);
-	//m_sprite->SetOrigin(texture);
+	m_sprite->SetOrigin(texture);
 	m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }
