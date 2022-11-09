@@ -20,6 +20,8 @@ public:
     
     void UpdatePlayerAnimation();
 
+   
+
     float GetXplayer();
     float GetYplayer();
 

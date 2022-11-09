@@ -48,7 +48,7 @@ void Player::Mouvement()
 	}
 	if (GetController()->Jump())
 	{
-		m_pPlayer->Move(0.0f, -1.0f);
+		m_pPlayer->SetVelocityY(-250.f);
 		this->animState = JUMPING;
 	}
 	if (GetController()->Down())
@@ -76,23 +76,6 @@ float Player::GetYplayer()
 	return m_pPlayer->GetY();
 }
 
-void Player::OnEnter(int oldState)
-{
-}
-
-void Player::OnExecute()
-{
-}
-
-void Player::OnExit(int newState)
-{
-}
-
-void Player::OnUpdate()
-{
-	Mouvement();
-	UpdatePlayerAnimation();
-}
 
 void Player::UpdatePlayerAnimation()
 {
@@ -123,4 +106,24 @@ void Player::UpdatePlayerAnimation()
 		}
 
 
+}
+
+
+
+void Player::OnEnter(int oldState)
+{
+}
+
+void Player::OnExecute()
+{
+}
+
+void Player::OnExit(int newState)
+{
+}
+
+void Player::OnUpdate()
+{
+	Mouvement();
+	UpdatePlayerAnimation();
 }
