@@ -60,12 +60,27 @@ void Entity::Move(float dir_x, float dir_y)
 {
 	//Acceleration
 	velocity.x += dir_x * acceleration * GetApp()->GetElapsedTime();
-	//velocity.y += dir_y * acceleration;
+	//velocity.y += dir_y * jump * GetApp()->GetElapsedTime();
 
 	//Limit velocity 
 	if (abs(velocity.x) > velocityMax)
 	{
 		velocity.x = velocityMax * ((velocity.x < 0.f) ? -1.0f : 1.0f);
+	}
+}
+
+void Entity::Deceleration()
+{
+	float elapsed = GetApp()->GetElapsedTime();
+	if (abs(velocity.x) != 0)
+	{
+		if (velocity.x > 0)
+		{
+			velocity.x -= drag * elapsed;
+		}
+		else {
+			velocity.x += drag * elapsed;
+		}
 	}
 }
 
@@ -78,7 +93,7 @@ void Entity::UpdateCollision()
 {
 	if (GetGlobalBounds().top + GetGlobalBounds().height > WNDSIZE_H && m_player == true)
 	{
-		ResetVelocity();
+		ResetVelocityY();
 		GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
 	}
 }

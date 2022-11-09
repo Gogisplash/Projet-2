@@ -17,6 +17,7 @@ public:
 	void AddX(float x);
 	void AddY(float y);
 	void Move(float dir_x, float dir_y);
+	void Deceleration();
 
 	sf::FloatRect GetGlobalBounds();
 	void UpdateCollision();

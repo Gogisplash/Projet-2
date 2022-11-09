@@ -41,5 +41,6 @@ protected:
     Animation* m_animIdle;
     Animation* m_animRun;
     
+    sf::Event m_event;
 };
 

@@ -13,7 +13,7 @@ Controller::~Controller()
 void Controller::Reset()
 {
 	m_start = NONE;
-	m_attack = NONE;
+	m_jump = NONE;
 
 	m_up = false;
 	m_down = false;
@@ -43,7 +43,7 @@ int Controller::GetKey(int key, bool press)
 
 void Controller::OnUpdate()
 {
-	m_start = GetKey(m_start, sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+	m_jump = GetKey(m_jump, sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
 	m_attack = GetKey(m_attack, sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
 	m_up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
 	m_down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);

@@ -6,7 +6,7 @@ public:
 	virtual ~Physics();
 
 	void Update();
-	void ResetVelocity();
+	void ResetVelocityY();
 
 protected:
 	sf::Vector2f velocity;
@@ -16,5 +16,6 @@ protected:
 	float velocityMin;
 	float velocityMaxY;
 	float gravity;
+	float jump;
 };
 

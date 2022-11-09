@@ -6,7 +6,7 @@ Player::Player()
 	animState = IDLE;
 	scale_left = { -1,1 };
 	scale_right = { 1,-1 };
-
+	
 }
 
 Player::~Player()
@@ -20,7 +20,7 @@ void Player::Init()
 	m_pPlayer->SetPosition(1000, 500);
 
 	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
-	m_pPlayer->GetSprite()->SetScale(5.f, 5.f);
+	m_pPlayer->GetSprite()->SetScale(3.f,3.f);
 	
 	m_animIdle = new Animation(11, 20);
 	m_animRun = new Animation(12, 20);
@@ -31,6 +31,7 @@ void Player::Init()
 
 void Player::Mouvement()
 {
+	
 	float time = GetApp()->GetTime();
 	float elapsed = GetApp()->GetElapsedTime();
 	if (GetController()->Right())
@@ -45,9 +46,9 @@ void Player::Mouvement()
 		
 		this->animState = RUN_LEFT;
 	}
-	if (GetController()->Up())
+	if (GetController()->Jump())
 	{
-		m_pPlayer->AddY(-m_speed * elapsed);
+		m_pPlayer->Move(0.0f, -1.0f);
 		this->animState = JUMPING;
 	}
 	if (GetController()->Down())
@@ -55,14 +56,12 @@ void Player::Mouvement()
 		m_pPlayer->AddY(m_speed * elapsed);
 		this->animState = CRAWLING;
 	}
-	if (sf::Event::KeyReleased)
-	{
-
-	}
 	else
 	{
 		this->animState = IDLE;
+		m_pPlayer->Deceleration();
 	}
+	
 	m_pPlayer->AddY(m_pPlayer->GetVelocity().y * elapsed);
 	m_pPlayer->AddX(m_pPlayer->GetVelocity().x * elapsed);
 }

@@ -2,12 +2,13 @@
 
 Physics::Physics()
 {
-	velocityMaxY = 50.f;
-	velocityMax = 500.0f;
+	velocityMaxY = 500.f;
+	velocityMax = 400.0f;
 	velocityMin = 1.0f;
-	acceleration = 200.0f;
-	drag = 90.f;
-	gravity = 4.0f;
+	acceleration = 300.0f;
+	//jump = 1500.f;
+	drag = 200.f;
+	gravity = 200.0f;
 }
 
 Physics::~Physics()
@@ -18,9 +19,6 @@ void Physics::Update()
 {
 	float elapsed = GetApp()->GetElapsedTime();
 
-	//Deceleration
-	//velocity.x -= drag * elapsed;
-	
 	//Gravity
 	velocity.y += gravity * elapsed;
 
@@ -29,20 +27,9 @@ void Physics::Update()
 	{
 		velocity.y = velocityMaxY * ((velocity.y < 0.f) ? -1.0f : 1.0f);
 	}
-
-	//Limit deceleration
-	if (abs(velocity.x) < velocityMin)
-	{
-		velocity.x = 0.0f;
-	}
-	if (abs(velocity.y) < velocityMin)
-	{
-		velocity.y = 0.0f;
-	}
-	
 }
 
-void Physics::ResetVelocity()
+void Physics::ResetVelocityY()
 {
 	velocity.y = 0.0f;
 }
