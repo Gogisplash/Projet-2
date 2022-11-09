@@ -15,9 +15,9 @@ void Menu::Init()
     m_sprite.setTexture(GetApp()->m_texMenu);
     m_font.loadFromFile("C:\\Windows\\Fonts\\verdana.ttf");
 
-    /*GetApp()->m_musicMenu.play();
-    GetApp()->m_musicMenu.setVolume(20.f);
-    GetApp()->m_musicMenu.setLoop(true);*/
+    //GetApp()->m_musicMenu.play();
+    //GetApp()->m_musicMenu.setVolume(20.f);
+    //GetApp()->m_musicMenu.setLoop(true);
 
     //ToState(STATE_MAIN);
 }

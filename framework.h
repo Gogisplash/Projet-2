@@ -15,6 +15,7 @@
 #include <memory.h>
 #include <tchar.h>
 #include <vector>
+#include <cmath>
 #include <set>
 #include <cstdlib>
 #include "Resource.h"

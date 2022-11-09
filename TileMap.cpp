@@ -32,7 +32,10 @@ void TileMap::OnUpdate()
 
 void TileMap::OnRender(sf::RenderTexture& rt)
 {
-    rt.draw(m_sprite1);
+    rt.draw(m_sprite1); // Background
+
+    float time = GetApp()->GetTime();
+    float elapsed = GetApp()->GetElapsedTime();
 
     //int box_sizeX = 142 - 97;
     //int box_sizeY = 110 - 65;
@@ -66,10 +69,12 @@ void TileMap::OnRender(sf::RenderTexture& rt)
     {0,0,0,0,0,0,0,0,0,0,7,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,7,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,7,0,7,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,7,0,7,0,0,0,0,0,0,4},
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0,0,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0,0,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0,0,4},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4},
-    {0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,7,0,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4},
+    {0,0,0,0,0,7,0,0,0,0,6,0,0,0,0,7,0,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4},
     {0,0,7,0,7,7,7,0,0,0,0,0,0,0,7,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,4},
     {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
     };
+
+    sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
 
     for (int y = 0; y < 10; y++)
     {
@@ -78,7 +83,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 1)
             {
                 // Sol marron
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                //sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -89,7 +94,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 2)
             {
                 // Sol vert
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                //sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -100,7 +105,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 3)
             {
                 // Sol violet
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+               // sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -111,7 +116,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 4)
             {
                 // Brique rouge
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                //sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -122,7 +127,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 5)
             {
                 // Relief marron
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                //sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -130,10 +135,10 @@ void TileMap::OnRender(sf::RenderTexture& rt)
                 rt.draw(box);
             }
 
-            if (map[y][x] == 6)
+            if (map[y][x] == 6) // Plateforme Mouvante
             {
                 // Relief gris
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+                //sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -144,7 +149,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 7)
             {
                 // Relief orange
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+               // sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -155,7 +160,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 8)
             {
                 // Relief gold
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+               // sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
@@ -166,7 +171,7 @@ void TileMap::OnRender(sf::RenderTexture& rt)
             if (map[y][x] == 9)
             {
                 // Porte
-                sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
+             //   sf::RectangleShape box(sf::Vector2f(box_sizeX, box_sizeY));
                 box.setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
                 sf::Texture t = GetApp()->m_texTileSet;
                 box.setTexture(&t);
