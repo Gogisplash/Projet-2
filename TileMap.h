@@ -29,4 +29,5 @@ private:
     sf::VertexArray m_vertices;
     sf::Texture m_tileset;
     sf::Sprite m_sprite;
+    sf::Sprite m_sprite1;
 };

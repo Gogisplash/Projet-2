@@ -47,6 +47,7 @@ public:
 
 	// Création des classes de Texture avec SFML
 
+	sf::Texture m_texBgLevel1;
 	sf::Texture m_texMenu;
 	sf::Texture m_texBack;
 	sf::Texture m_texGround;

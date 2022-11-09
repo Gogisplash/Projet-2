@@ -165,6 +165,9 @@
     <Image Include="ressource\Terrain\ground.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="ressource\Background\bg_level1.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="ressource\Front\poorFront.ttf" />

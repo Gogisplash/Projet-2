@@ -10,6 +10,7 @@ TileMap::~TileMap()
 
 void TileMap::Init()
 {
+    m_sprite1.setTexture(GetApp()->m_texBgLevel1);
     m_sprite.setTexture(GetApp()->m_texTileSet);
     m_sprite.setTexture(GetApp()->m_texGround);   
 }
@@ -31,6 +32,7 @@ void TileMap::OnUpdate()
 
 void TileMap::OnRender(sf::RenderTexture& rt)
 {
+    rt.draw(m_sprite1);
 
     //int box_sizeX = 142 - 97;
     //int box_sizeY = 110 - 65;

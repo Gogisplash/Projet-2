@@ -20,7 +20,7 @@ void Camera::ApplayEffect() {
 	if (m_duration > 0.0f) {
 		m_duration -= 0.1f;
 
-		m_view.setCenter(sf::Vector2f(WNDSIZE_W, WNDSIZE_H) / 2.0f + (sf::Vector2f) GetPlayer());
+		//m_view.setCenter(sf::Vector2f(WNDSIZE_W, WNDSIZE_H) / 2.0f + (sf::Vector2f) GetPlayer());
 
 		m_currentPosition++;
 		if (m_currentPosition > 9)
