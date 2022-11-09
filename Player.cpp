@@ -15,6 +15,7 @@ void Player::Init()
 	m_pPlayer = new Entity;
 	m_pPlayer->SetPlayer();
 	m_pPlayer->SetPosition(500, 500);
+
 	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
 	
 	m_animIdle = new Animation(11, 20);
@@ -39,12 +40,12 @@ void Player::Mouvement()
 	}
 	else if (GetController()->Up())
 	{
-		m_pPlayer->AddY(m_speed * elapsed);
+		m_pPlayer->AddY(-m_speed * elapsed);
 		this->animState = JUMPING;
 	}
 	else if (GetController()->Down())
 	{
-		m_pPlayer->AddY(-m_speed * elapsed);
+		m_pPlayer->AddY(m_speed * elapsed);
 		this->animState = CRAWLING;
 	}
 	else
@@ -76,26 +77,27 @@ void Player::UpdatePlayerAnimation()
 	Sprite* t_sprite = m_pPlayer->GetSprite();
 		if (animState == IDLE)
 		{
-			m_pPlayer->SetTexture((GetApp()->m_texPlayerIdle));
+			t_sprite->SetTexture((GetApp()->m_texPlayerIdle));
 			m_animIdle->Update();
-			m_pPlayer->GetSprite()->SetTextureRect(m_animIdle->GetCurrentFrame());
+			t_sprite->SetTextureRect(m_animIdle->GetCurrentFrame());
 			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
 		}
 		else if (animState == RUN_RIGHT)
 		{
-			m_pPlayer->SetTexture((GetApp()->m_texPlayerRun));
+			t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 			m_animRun->Update();
-			m_pPlayer->GetSprite()->SetTextureRect(m_animRun->GetCurrentFrame());
+			t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
 			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
 		}
 		else if (animState == RUN_LEFT)
 		{
-			m_pPlayer->SetTexture((GetApp()->m_texPlayerRun));
+
+			t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 			m_animRun->Update();
 			//m_pPlayer->GetSprite()->SetScale(-2.0f, 2.0f);
-			m_pPlayer->GetSprite()->SetTextureRect(m_animRun->GetCurrentFrame());
-			t_sprite->SetOrigin((GetApp()->m_texPlayerRun));
-			m_pPlayer->GetSprite()->Rotate(180.0f);
+			t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
+			//t_sprite->SetOrigin((GetApp()->m_texPlayerRun));
+			
 			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
 			
 		}

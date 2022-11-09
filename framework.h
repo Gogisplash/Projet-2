@@ -16,6 +16,7 @@
 #include <tchar.h>
 #include <vector>
 #include <set>
+
 #include "Resource.h"
 
 #define WNDSIZE_H							900
@@ -37,6 +38,7 @@ using namespace std;
 #include "Phase.h"
 #include "Sprite.h"
 #include "Animation.h"
+#include "Physics.h"
 #include "Entity.h"
 #include "Entity_manager.h"
 #include "Camera.h"
