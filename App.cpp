@@ -52,6 +52,7 @@ void App::Init(HINSTANCE hInstance)
 
 	sf::View view = m_window.getDefaultView();
 	view.setSize(WNDSIZE_W, -WNDSIZE_H);
+	//m_window.setView(Camera::Get().GetView());
 	m_window.setView(view);
 
 	//Activation du vsync
@@ -109,6 +110,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
+	LoadTextureFromResource(m_texBgLevel1, IDB_TEXTURE_BG_LEVEL1);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
 	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
 	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);

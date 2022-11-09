@@ -47,6 +47,7 @@ public:
 
 	// Création des classes de Texture avec SFML
 
+	sf::Texture m_texBgLevel1;
 	sf::Texture m_texMenu;
 	sf::Texture m_texBack;
 	sf::Texture m_texGround;
@@ -58,6 +59,7 @@ public:
 
 	sf::Font font;
 	sf::Text m_text;
+	sf::View view;
 	string m_txt;
 
 	// Création des musiques via SFML

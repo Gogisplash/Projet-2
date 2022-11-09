@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Projet 2.ico" />
+    <Image Include="ressource\Background\bg_level1.png" />
     <Image Include="ressource\Main Characters\Virtual Guy\Idle (32x32).png" />
     <Image Include="ressource\Main Characters\Virtual Guy\Run (32x32).png" />
     <Image Include="ressource\Terrain\ground.png" />
