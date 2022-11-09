@@ -6,7 +6,7 @@ Physics::Physics()
 	velocityMax = 400.0f;
 	velocityMin = 1.0f;
 	acceleration = 300.0f;
-	//jump = 1500.f;
+	jump = 1500.f;
 	drag = 200.f;
 	gravity = 200.0f;
 }

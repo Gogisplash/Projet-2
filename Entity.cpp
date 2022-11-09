@@ -56,11 +56,16 @@ void Entity::AddY(float y)
 	m_y += y;
 }
 
+void Entity::SetVelocityY(float y)
+{
+	velocity.y = y;
+}
+
 void Entity::Move(float dir_x, float dir_y)
 {
 	//Acceleration
 	velocity.x += dir_x * acceleration * GetApp()->GetElapsedTime();
-	//velocity.y += dir_y * jump * GetApp()->GetElapsedTime();
+	velocity.y += dir_y * jump * GetApp()->GetElapsedTime();
 
 	//Limit velocity 
 	if (abs(velocity.x) > velocityMax)
@@ -94,6 +99,7 @@ void Entity::UpdateCollision()
 	if (GetGlobalBounds().top + GetGlobalBounds().height > WNDSIZE_H && m_player == true)
 	{
 		ResetVelocityY();
+		float a = GetGlobalBounds().height;
 		GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
 	}
 }

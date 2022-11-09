@@ -13,7 +13,8 @@ public:
 	void NotifyBornEntity(Entity* pEntity);
 	void NotifyKilledEntity(Entity* pEntity);
 	void ArrangeEntities();
-	//Entity* TestCollision(Entity* pEntity);
+	void NotifyNewPlatform(sf::RectangleShape* pPlateform);
+	bool TestCollision(Entity* pEntity);
 	
 
 	void OnUpdate();
@@ -23,5 +24,6 @@ protected:
 	set<Entity*> m_entities;
 	vector<Entity*> m_killedEntities;
 	vector<Entity*> m_bornEntities;
+	vector<sf::RectangleShape*> m_plateform;
 	
 };

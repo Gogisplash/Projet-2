@@ -16,6 +16,7 @@ public:
 	void SetPosition(float x, float y);
 	void AddX(float x);
 	void AddY(float y);
+	void SetVelocityY(float y);
 	void Move(float dir_x, float dir_y);
 	void Deceleration();
 
