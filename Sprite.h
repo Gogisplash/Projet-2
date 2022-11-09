@@ -10,14 +10,20 @@ public:
 	void SetPosition(float x, float y);
 	void SetRotation(float angle);
 	void SetScale(float x, float y);
-	void SetTextureRect(int pixels, int x, int y);
+	void SetTextureRect(sf::IntRect rect);
 	void SetOrigin(sf::Texture& texture);
+	void Rotate(float angle);
 
+	void Animation();
+	
 	sf::Sprite* GetSprite() { return &m_sprite; }
 
 protected:
 
 	sf::Sprite m_sprite;
+	vector<Sprite> TileSet;
+	float time;
+	float elapsedTime;
 
 };
 

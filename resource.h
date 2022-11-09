@@ -17,8 +17,16 @@
 #define IDR_MAINFRAME                   128
 #define IDB_TEXTURE_GROUND              129
 #define IDB_PLAYER_IDLE                 130
+#define IDB_TEXTURE_PLAYER_IDLE         130
 #define IDR_FONT1                       131
 #define IDR_WAVE_MENU                   133
+#define IDR_WAVE1                       136
+#define IDR_WAVE_CLICK1                 136
+#define IDB_PLAYER_RUN                  137
+#define IDB_TEXTURE_PLAYER_RUN          137
+#define IDB_TILESET                     138
+#define IDB_PNG1                        139
+#define IDB_GROUND                      139
 #define IDR_WAVE_DMENU					134
 #define IDB_PLAYER_RUN					135
 #define IDB_TEXTURE_MENU                999
@@ -30,7 +38,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        138
+#define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

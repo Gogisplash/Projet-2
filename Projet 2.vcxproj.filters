@@ -66,10 +66,13 @@
     <ClInclude Include="Global.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="TileMap.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,10 +119,13 @@
     <ClCompile Include="Global.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="TileMap.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -148,6 +154,9 @@
       <Filter>Fichiers de ressources</Filter>
     </Image>
     <Image Include="ressource\Main Characters\Virtual Guy\Run (32x32).png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="ressource\Terrain\ground.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>

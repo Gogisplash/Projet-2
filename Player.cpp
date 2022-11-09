@@ -3,7 +3,7 @@
 Player::Player()
 {
 	m_speed = 400.0f;
-	currentframe = 0;
+	animState = IDLE;
 }
 
 Player::~Player()
@@ -17,6 +17,10 @@ void Player::Init()
 	m_pPlayer->SetPosition(500, 500);
 	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
 	
+	m_animIdle = new Animation(11, 20);
+	m_animRun = new Animation(12, 20);
+	//m_pPlayer->GetSprite()->SetTextureRect(currentframe);
+	
 }
 
 void Player::Mouvement()
@@ -26,14 +30,27 @@ void Player::Mouvement()
 	if (GetController()->Right())
 	{
 		m_pPlayer->AddX(m_speed * elapsed);
+		this->animState = RUN_RIGHT;
 	}
-		
-	if (GetController()->Left())
+	else if (GetController()->Left())
+	{
 		m_pPlayer->AddX(-m_speed * elapsed);
-	if (GetController()->Up())
+		this->animState = RUN_LEFT;
+	}
+	else if (GetController()->Up())
+	{
 		m_pPlayer->AddY(m_speed * elapsed);
-	if (GetController()->Down())
+		this->animState = JUMPING;
+	}
+	else if (GetController()->Down())
+	{
 		m_pPlayer->AddY(-m_speed * elapsed);
+		this->animState = CRAWLING;
+	}
+	else
+	{
+		this->animState = IDLE;
+	}
 }
 
 void Player::OnEnter(int oldState)
@@ -56,25 +73,32 @@ void Player::OnUpdate()
 
 void Player::UpdatePlayerAnimation()
 {
-	/*float time = GetApp()->GetTime();
-	float updateTime = GetApp()->GetController();*/
-	
-	if (GetController()->Right())
-	{
-		m_pPlayer->SetTexture(GetApp()->m_texPlayerRun);
-		m_pPlayer->GetSprite()->SetTextureRect(32,currentframe,0);
-		currentframe += 32;
-		if (currentframe > 352)
+	Sprite* t_sprite = m_pPlayer->GetSprite();
+		if (animState == IDLE)
 		{
-			currentframe = 0;
+			m_pPlayer->SetTexture((GetApp()->m_texPlayerIdle));
+			m_animIdle->Update();
+			m_pPlayer->GetSprite()->SetTextureRect(m_animIdle->GetCurrentFrame());
+			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
 		}
-	}
+		else if (animState == RUN_RIGHT)
+		{
+			m_pPlayer->SetTexture((GetApp()->m_texPlayerRun));
+			m_animRun->Update();
+			m_pPlayer->GetSprite()->SetTextureRect(m_animRun->GetCurrentFrame());
+			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
+		}
+		else if (animState == RUN_LEFT)
+		{
+			m_pPlayer->SetTexture((GetApp()->m_texPlayerRun));
+			m_animRun->Update();
+			//m_pPlayer->GetSprite()->SetScale(-2.0f, 2.0f);
+			m_pPlayer->GetSprite()->SetTextureRect(m_animRun->GetCurrentFrame());
+			t_sprite->SetOrigin((GetApp()->m_texPlayerRun));
+			m_pPlayer->GetSprite()->Rotate(180.0f);
+			t_sprite->SetPosition(m_pPlayer->GetX(), m_pPlayer->GetY());
+			
+		}
 
-	if (GetController()->Left())
 
-		if (GetController()->Up())
-
-			if (GetController()->Down())
-
-				;
 }
