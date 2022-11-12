@@ -65,9 +65,7 @@ void Game::OnUpdate()
 	// Player
 	m_player.OnUpdate();
 
-	// View
 
-	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
 	viewGame.setCenter(GetPlayer()->GetXplayer(), GetPlayer()->GetYplayer());
 	GetApp()->GetWindow();
 	GetApp()->GetWindow()->setView(viewGame);
