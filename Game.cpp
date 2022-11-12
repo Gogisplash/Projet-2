@@ -10,7 +10,10 @@ Game::~Game()
 
 void Game::Init()
 {
-	
+	// Paramètres de la musique dans Game
+
+	GetApp()->m_musicMenu.stop();
+
 }
 
 void Game::Uninit()
@@ -62,6 +65,12 @@ void Game::OnUpdate()
 	// Player
 	m_player.OnUpdate();
 
+	// View
+
+	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
+	viewGame.setCenter(GetPlayer()->GetXplayer(), GetPlayer()->GetYplayer());
+	GetApp()->GetWindow();
+	GetApp()->GetWindow()->setView(viewGame);
 
 	// Entities
 	m_manager.OnUpdate();

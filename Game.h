@@ -24,6 +24,7 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
+    sf::View viewGame;
     Sprite m_sprite;
     Entity_manager m_manager;
     Player m_player;
