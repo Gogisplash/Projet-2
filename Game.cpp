@@ -66,10 +66,6 @@ void Game::OnUpdate()
 	m_player.OnUpdate();
 
 
-	viewGame.setCenter(GetPlayer()->GetXplayer(), GetPlayer()->GetYplayer());
-	GetApp()->GetWindow();
-	GetApp()->GetWindow()->setView(viewGame);
-
 	// Entities
 	m_manager.OnUpdate();
 
@@ -81,7 +77,15 @@ void Game::OnUpdate()
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
+	GetApp()->GetWindow()->setView(GetApp()->GetWindow()->getDefaultView());
 	rt.draw(*m_sprite.GetSprite());
+
+	// View
+
+	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
+	viewGame.setCenter(GetPlayer()->GetXplayer(), 450.0f);
+	GetApp()->GetWindow();
+	GetApp()->GetWindow()->setView(viewGame);
 
 	// Map
 	m_tileset.OnRender(rt);
