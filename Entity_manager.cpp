@@ -13,6 +13,7 @@ void Entity_manager::Clear()
 	ArrangeEntities();
 	m_bornEntities.clear();
 	m_killedEntities.clear();
+	m_plateform.clear();
 	for (set<Entity*>::iterator it = m_entities.begin(); it != m_entities.end(); ++it)
 		delete* it;
 	m_entities.clear();
@@ -51,6 +52,26 @@ void Entity_manager::ArrangeEntities()
 		delete* it;
 	}
 	m_killedEntities.clear();
+}
+
+void Entity_manager::NotifyNewPlatform(sf::RectangleShape* pPlateform)
+{
+	if (pPlateform)
+		m_plateform.push_back(pPlateform);
+}
+
+bool Entity_manager::TestCollision(Entity* pEntity)
+{
+	
+	for (auto it = m_plateform.begin(); it != m_plateform.end(); ++it)
+	{
+		if(pEntity->GetGlobalBounds().intersects((*it)->getGlobalBounds()));
+		{
+			return true;
+		}
+		
+	}
+	return false;
 }
 
 //Entity* Entity_manager::TestCollision(Entity* pEntity)

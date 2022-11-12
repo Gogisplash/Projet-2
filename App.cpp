@@ -2,7 +2,6 @@
 
 App::App()
 {
-	
 	m_lastUpdate = 0.0f;
 	m_pPhase = NULL;
 }
@@ -24,7 +23,7 @@ void App::LoadFont()
 	sf::Text m_txt;
 }
 
-void App::SetText(sf::Text& txt, String str)
+void App::SetText(sf::Text& txt, sf::String str)
 {
 	// Indication de la bonne police
 	txt.setFont(font);
@@ -35,7 +34,7 @@ void App::SetText(sf::Text& txt, String str)
 	// On donne la couleur
 	txt.setFillColor(sf::Color::Cyan);
 	// Modif du style
-	txt.setStyle(Text::Bold | Text::Underlined);
+	txt.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 void App::Init(HINSTANCE hInstance)
@@ -49,16 +48,30 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+
+	sf::View view = m_window.getDefaultView();
+	view.setSize(WNDSIZE_W, -WNDSIZE_H);
+	//m_window.setView(Camera::Get().GetView());
+	m_window.setView(view);
+
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
 	// On règle toutes les propriétés
 	//SetText(txt, "Mon texte !"); Ecrire un texte
 
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
-	m_sprite.setTexture(m_rt.getTexture());
+	m_sprite.SetTexture(m_rt.getTexture());
 
+	//Textures
 	LoadTextures();
+
+	//Musics
+
+	LoadMusics();
+
+	//Sound
+	LoadSound();
 
 	m_menu.Init();
 
@@ -97,11 +110,12 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
+	LoadTextureFromResource(m_texBgLevel1, IDB_TEXTURE_BG_LEVEL1);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
+	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
+	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
+	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
 
-	m_sprite.setTexture(m_texMenu);
-	//m_sprite.setScale(100.0f, 100.0f);
-	LoadTextureFromResource(m_texPlayer, IDB_PLAYER_IDLE);
 }
 
 bool App::LoadTextureFromResource(sf::Texture& texture, int id)
@@ -115,9 +129,43 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 	return result;
 }
 
+
+void App::LoadMusics()
+{
+	LoadMusicFromResource(m_musicMenu, IDR_WAVE_MENU);
+}
+
+bool App::LoadMusicFromResource(sf::Music& music, int id)
+{
+	int size;
+	BYTE* data = GetApp()->GetResource("WAVE", id, size);
+	if (data == NULL)
+		return false;
+	music.openFromMemory(data, size);
+	//delete[] data;
+}
+
+void App::LoadSound()
+{
+
+}
+
+bool App::LoadSoundFromResource(sf::SoundBuffer& sound, int id)
+{
+	int size;
+	BYTE* data = GetApp()->GetResource("WAVE", id, size);
+	if (data == NULL)
+		return false;
+	bool result = sound.loadFromMemory(data, size);
+	delete[] data;
+	return result;
+
+	//delete[] data;
+}
+
 bool App::HasWindow()
 {
-	//--------------
+	
 	if (m_window.isOpen() == false)
 		return false;
 
@@ -169,7 +217,6 @@ void App::ToPhase(int phase)
 void App::Render()
 {
 
-
 	// Clear
 	m_rt.clear();
 
@@ -177,10 +224,7 @@ void App::Render()
 	m_pPhase->OnRender(m_rt);
 
 	// Window
-	//m_window.draw(m_sprite);
-
-	//m_window.clear(Color::Red);
-	m_window.draw(m_sprite);
+	m_window.draw(*m_sprite.GetSprite());
 	m_window.display();
 }
 
