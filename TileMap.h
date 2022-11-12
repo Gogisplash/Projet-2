@@ -25,7 +25,7 @@ private:
     //    // et on dessine enfin le tableau de vertex
     //    target.draw(m_vertices, states);
     //}
-
+    sf::RectangleShape* m_box;
     sf::VertexArray m_vertices;
     sf::Texture m_tileset;
     sf::Sprite m_sprite;
