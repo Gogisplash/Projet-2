@@ -4,8 +4,8 @@ Player::Player()
 {
 	//m_speed = 35.0f;
 	animState = IDLE;
-	scale_left = { -1,1 };
-	scale_right = { 1,-1 };
+	m_scale_left = { -1,1 };
+	m_scale_right = { 1,-1 };
 	
 }
 
@@ -124,6 +124,7 @@ void Player::OnExit(int newState)
 
 void Player::OnUpdate()
 {
+	GetManager()->TestCollision(m_pPlayer);
 	Mouvement();
 	UpdatePlayerAnimation();
 }
