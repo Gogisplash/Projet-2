@@ -54,6 +54,8 @@ public:
 	sf::Texture m_texPlayerIdle;
 	sf::Texture m_texPlayerRun;
 	sf::Texture m_texTileSet;
+
+	sf::RenderWindow* GetWindow() { return &m_window; };
 	
 	vector<Sprite> m_animRun;
 
