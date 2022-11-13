@@ -70,7 +70,7 @@ void Entity::Move(float dir_x, float dir_y)
 {
 	//Acceleration
 	velocity.x += dir_x * acceleration * GetApp()->GetElapsedTime();
-	velocity.y += dir_y * jump * GetApp()->GetElapsedTime();
+	velocity.y += dir_y * GetApp()->GetElapsedTime();
 
 	//Limit velocity 
 	if (abs(velocity.x) > velocityMax)
