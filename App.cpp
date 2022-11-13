@@ -74,7 +74,7 @@ void App::Init(HINSTANCE hInstance)
 	LoadSound();
 
 	m_menu.Init();
-
+	
 	//ToPhase(Phase::GAME);
 	ToPhase(Phase::MENU);
 }
@@ -114,7 +114,7 @@ void App::LoadTextures()
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
 	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
 	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
-	LoadTextureFromResource(m_texPlayerRun, IDB_PLAYER_RUN);
+	LoadTextureFromResource(m_texPlayerRun, IDB_TEXTURE_PLAYER_RUN);
 
 }
 

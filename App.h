@@ -26,6 +26,8 @@ public:
 	Game* GetGame() { return &m_game; }
 	Controller* GetController() { return &m_controller; }
 	Entity_manager* GetManager() { return m_game.GetManager(); }
+	TileMap* GetTileMap() { return &m_tileset; }
+	sf::RenderTexture* GetRenderTexture() { return &m_rt; }
 
 	bool HasWindow();
 
@@ -87,6 +89,7 @@ protected:
 	Controller m_controller;
 	Game m_game;
 	Menu m_menu;
+	TileMap m_tileset;
 
 	Phase* m_pPhase;
 };

@@ -20,8 +20,16 @@ void Game::Uninit()
 
 void Game::Start()
 {
-	m_tileset.Init();
+
+	m_tileset.Init(*(GetApp()->GetRenderTexture()));
 	m_player.Init();
+	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
+	m_rec.setPosition(500.f, 500.f);
+	m_rec.setFillColor(sf::Color::Color(54, 255, 255, 255));
+	GetManager()->NotifyNewPlatform(&m_rec);
+	
+
+
 }
 
 void Game::OnEnter(int oldState)
@@ -75,6 +83,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
 	rt.draw(*m_sprite.GetSprite());
+
 
 	// Map
 	m_tileset.OnRender(rt);
