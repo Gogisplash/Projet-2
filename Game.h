@@ -24,6 +24,7 @@ public:
     virtual void OnRender(sf::RenderTexture& rt);
 
 protected:
+    sf::View viewGame;
 
     sf::RectangleShape m_rec;
     Sprite m_sprite;

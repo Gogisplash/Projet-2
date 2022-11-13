@@ -48,12 +48,12 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Gogisplash", sf::Style::Close);
 
-	sf::View view = m_window.getDefaultView();
-	view.setSize(WNDSIZE_W, -WNDSIZE_H);
+	sf::View viewMenu = m_window.getDefaultView();
+	viewMenu.setSize(WNDSIZE_W, -WNDSIZE_H);
 	//m_window.setView(Camera::Get().GetView());
-	m_window.setView(view);
+	m_window.setView(viewMenu); 
 
 	//Activation du vsync
 	m_window.setVerticalSyncEnabled(true);
@@ -73,6 +73,8 @@ void App::Init(HINSTANCE hInstance)
 	//Sound
 	LoadSound();
 
+	//Phases
+
 	m_menu.Init();
 	
 	//ToPhase(Phase::GAME);
@@ -82,6 +84,8 @@ void App::Init(HINSTANCE hInstance)
 
 void App::Uninit()
 {
+	m_menu.Uninit();
+	m_game.Uninit();
 }
 
 BYTE* App::GetResource(const char* resType, int id, int& size)
@@ -133,6 +137,7 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 void App::LoadMusics()
 {
 	LoadMusicFromResource(m_musicMenu, IDR_WAVE_MENU);
+	LoadMusicFromResource(m_musicGame, IDR_WAVE_GAME);
 }
 
 bool App::LoadMusicFromResource(sf::Music& music, int id)
@@ -147,6 +152,9 @@ bool App::LoadMusicFromResource(sf::Music& music, int id)
 
 void App::LoadSound()
 {
+	LoadSoundFromResource(bufferDMenu, IDR_WAVE_DMENU);
+
+	m_soundDMenu.setBuffer(GetApp()->bufferDMenu);
 
 }
 

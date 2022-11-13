@@ -10,12 +10,12 @@ Game::~Game()
 
 void Game::Init()
 {
-	
+
 }
 
 void Game::Uninit()
 {
-	
+	m_manager.Clear();
 }
 
 void Game::Start()
@@ -23,6 +23,14 @@ void Game::Start()
 
 	m_tileset.Init(*(GetApp()->GetRenderTexture()));
 	m_player.Init();
+
+	// Paramètres de la musique dans Game
+
+	GetApp()->m_musicMenu.stop();
+	GetApp()->m_musicGame.play();
+	GetApp()->m_musicGame.setVolume(10.f);
+	GetApp()->m_musicGame.setLoop(true);
+
 	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
 	m_rec.setPosition(500.f, 500.f);
 	m_rec.setFillColor(sf::Color::Color(54, 255, 255, 255));
@@ -82,8 +90,16 @@ void Game::OnUpdate()
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
+	GetApp()->GetWindow()->setView(GetApp()->GetWindow()->getDefaultView());
 	rt.draw(*m_sprite.GetSprite());
 
+	// View
+
+	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
+	viewGame.setCenter(GetPlayer()->GetXplayer(), 450.0f);
+	GetApp()->GetWindow();
+	GetApp()->GetWindow()->setView(viewGame);
+	GetApp()->GetWindow()->clear();
 
 	// Map
 	m_tileset.OnRender(rt);

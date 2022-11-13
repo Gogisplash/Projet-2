@@ -56,6 +56,8 @@ public:
 	sf::Texture m_texPlayerIdle;
 	sf::Texture m_texPlayerRun;
 	sf::Texture m_texTileSet;
+
+	sf::RenderWindow* GetWindow() { return &m_window; };
 	
 	vector<Sprite> m_animRun;
 
@@ -67,6 +69,7 @@ public:
 	// Création des musiques via SFML
 
 	sf::Music m_musicMenu;			// Musique du menu
+	sf::Music m_musicGame;			// Musique du game
 
 	// Création des sons et buffer via SFML 
 
