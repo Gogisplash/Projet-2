@@ -20,7 +20,8 @@ void Game::Uninit()
 
 void Game::Start()
 {
-	m_tileset.Init();
+
+	m_tileset.Init(*(GetApp()->GetRenderTexture()));
 	m_player.Init();
 
 	// Paramètres de la musique dans Game
@@ -29,6 +30,13 @@ void Game::Start()
 	GetApp()->m_musicGame.play();
 	GetApp()->m_musicGame.setVolume(10.f);
 	GetApp()->m_musicGame.setLoop(true);
+
+	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
+	m_rec.setPosition(500.f, 500.f);
+	m_rec.setFillColor(sf::Color::Color(54, 255, 255, 255));
+	GetManager()->NotifyNewPlatform(&m_rec);
+	
+
 
 }
 

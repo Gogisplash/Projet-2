@@ -21,6 +21,7 @@ public:
 	void Deceleration();
 
 	sf::FloatRect GetGlobalBounds();
+	
 	void UpdateCollision();
 
 	sf::Vector2f GetVelocity() { return velocity; };
@@ -35,6 +36,7 @@ public:
 protected:
 
 	Sprite* m_sprite;
+	sf::FloatRect m_hitbox;
 
 	bool m_player;
 	float m_x;

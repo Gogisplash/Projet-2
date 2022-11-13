@@ -8,6 +8,7 @@ Entity::Entity()
 	m_radius = 0.0f;
 	m_radiusSq = 0.0f;
 	m_sprite = NULL;
+	
 	GetManager()->NotifyBornEntity(this);
 }
 
@@ -91,17 +92,22 @@ void Entity::Deceleration()
 
 sf::FloatRect Entity::GetGlobalBounds()
 {
-	return m_sprite->GetSprite()->getGlobalBounds();
+	
+	return m_hitbox;
 }
 
 void Entity::UpdateCollision()
 {
-	if (GetGlobalBounds().top + GetGlobalBounds().height > WNDSIZE_H && m_player == true)
+	m_hitbox.left = GetX();
+	m_hitbox.top = GetY();
+	m_hitbox.width = 32;
+	m_hitbox.height = 32;
+	if (GetApp()->GetManager()->TestCollision(this))
 	{
 		ResetVelocityY();
-		float a = GetGlobalBounds().height;
-		GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
+		//GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
 	}
+	
 }
 
 void Entity::SetTexture(sf::Texture& texture)
@@ -115,6 +121,7 @@ void Entity::SetTexture(sf::Texture& texture)
 	m_sprite->SetTexture(texture);
 	m_sprite->SetScale(2.0f, 2.0f);
 	m_sprite->SetOrigin(texture);
+	
 	//m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
 }

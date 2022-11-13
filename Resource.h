@@ -23,7 +23,6 @@
 #define IDR_WAVE_DMENU                  134
 #define IDR_WAVE1                       136
 #define IDR_WAVE_CLICK1                 136
-#define IDB_PLAYER_RUN                  137
 #define IDB_TEXTURE_PLAYER_RUN          137
 #define IDB_TILESET                     138
 #define IDB_PNG1                        139

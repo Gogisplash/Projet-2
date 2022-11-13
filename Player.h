@@ -34,6 +34,7 @@ protected:
     Entity* m_pPlayer;
     Sprite* m_sprite;
 
+
     float m_speed;
      
     sf::Vector2f m_scale_left;
@@ -45,6 +46,6 @@ protected:
     Animation* m_animIdle;
     Animation* m_animRun;
     
-    sf::Event m_event;
+    
 };
 
