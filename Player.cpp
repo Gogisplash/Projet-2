@@ -103,7 +103,7 @@ void Player::UpdatePlayerAnimation()
 	default:
 		break;
 	}
-	t_sprite->SetPosition(GetXplayer(), GetYplayer());
+	
 }
 
 
@@ -125,6 +125,7 @@ void Player::OnUpdate()
 	Mouvement();
 	UpdatePlayerAnimation();
 	m_pPlayer->GetSprite()->SetPosition(GetXplayer(), GetYplayer());
+	sf::Vector2f a = m_pPlayer->GetSprite()->GetPosition();
 	GetManager()->TestCollision(m_pPlayer);
 	
 }
