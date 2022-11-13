@@ -20,10 +20,6 @@ public:
 	void Move(float dir_x, float dir_y);
 	void Deceleration();
 
-	sf::FloatRect GetGlobalHitbox();
-	
-	
-
 	sf::Vector2f GetVelocity() { return velocity; };
 	float GetX() { return m_x; }
 	float GetY() { return m_y; }
@@ -38,8 +34,7 @@ public:
 protected:
 
 	Sprite* m_sprite;
-	sf::RectangleShape* m_hitbox;
-
+	
 	bool m_player;
 	float m_x;
 	float m_y;

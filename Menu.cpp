@@ -38,8 +38,8 @@ void Menu::UpdateButtons()
         m_menu[i].setFillColor(sf::Color::White);
     }
 
-    m_menu[selectedItemIndex].setFillColor(sf::Color::Blue);
-    m_settings[selectedItemIndex].setFillColor(sf::Color::Blue);
+    m_menu[selectedItemIndex].setFillColor(sf::Color::Black);
+    m_settings[selectedItemIndex].setFillColor(sf::Color::Black);
 
 
     GetApp()->m_soundDMenu.play();
@@ -60,7 +60,7 @@ void Menu::OnEnter(int oldState)
 
             //Menu
             m_menu[0].setFont(m_font);
-            m_menu[0].setFillColor(sf::Color::Blue);
+            m_menu[0].setFillColor(sf::Color::Black);
             m_menu[0].setCharacterSize(30);
             m_menu[0].setStyle(sf::Text::Bold);
             m_menu[0].setString("Start Game");
@@ -102,7 +102,7 @@ void Menu::OnEnter(int oldState)
             m_sprite.setTexture(GetApp()->m_texSettings);
 
             m_settings[0].setFont(m_font);
-            m_settings[0].setFillColor(sf::Color::Blue);
+            m_settings[0].setFillColor(sf::Color::Black);
             m_settings[0].setCharacterSize(30);
             m_settings[0].setStyle(sf::Text::Bold);
             m_settings[0].setString("1. Music ON");

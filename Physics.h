@@ -7,6 +7,7 @@ public:
 
 	void Update();
 	void ResetVelocityY();
+	void ResetVelocityX();
 
 protected:
 	sf::Vector2f velocity;
