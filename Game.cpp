@@ -97,6 +97,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 
 	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
 	viewGame.setCenter(GetPlayer()->GetXplayer(), 450.0f);
+	
 	GetApp()->GetWindow();
 	GetApp()->GetWindow()->setView(viewGame);
 	GetApp()->GetWindow()->clear();

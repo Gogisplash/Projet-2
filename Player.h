@@ -40,7 +40,7 @@ protected:
     sf::Vector2f m_scale_left;
     sf::Vector2f m_scale_right;
 
-    
+    sf::RectangleShape m_hitbox;
 
     int animState;
     Animation* m_animIdle;

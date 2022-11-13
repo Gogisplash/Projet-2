@@ -93,7 +93,7 @@ void Entity::Deceleration()
 sf::FloatRect Entity::GetGlobalHitbox()
 {
 	return GetSprite()->GetSprite()->getGlobalBounds();
-	/*return GetSprite()->GetSprite()->getTransform().transformRect(m_hitbox);*/
+	
 }
 
 void Entity::UpdateCollision()

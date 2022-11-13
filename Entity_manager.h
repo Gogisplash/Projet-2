@@ -16,6 +16,8 @@ public:
 	void NotifyNewPlatform(sf::RectangleShape* pPlateform);
 	bool TestCollision(Entity* pEntity);
 	
+	void DrawPlateform(sf::RenderTexture* rt);
+	vector<sf::RectangleShape*>* GetPlateformList() { return &m_plateform; }
 
 	void OnUpdate();
 	void OnRender(sf::RenderTexture& rt);
