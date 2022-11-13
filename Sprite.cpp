@@ -54,6 +54,7 @@ void Sprite::Rotate(float angle)
 void Sprite::Move(sf::Vector2f velocity)
 {
 	m_hitBox.move(velocity);
+	
 }
 
 

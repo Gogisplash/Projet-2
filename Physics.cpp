@@ -33,3 +33,8 @@ void Physics::ResetVelocityY()
 {
 	velocity.y = 0.0f;
 }
+
+void Physics::ResetVelocityX()
+{
+	velocity.x = 0.0f;
+}

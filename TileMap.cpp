@@ -119,7 +119,7 @@ void TileMap::LoadMap()
 
     //};
 
-    m_box =  new sf::RectangleShape(sf::Vector2f(box_sizeX, box_sizeY));
+    
 
     for (int y = 0; y < 10; y++)
     {

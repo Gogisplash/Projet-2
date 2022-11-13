@@ -21,12 +21,12 @@ void Player::Init()
 	m_pPlayer->SetPosition(800.f,600.f);
 	
 	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
-	//m_pPlayer->GetSprite()->SetScale(3.f,3.f);
+	
 	sf::Vector2f size = sf::Vector2f(80.0f, 80.0f);
 	m_pPlayer->GetSprite()->SetSize(size);
 	m_animIdle = new Animation(11, 20);
 	m_animRun = new Animation(12, 20);
-	//m_pPlayer->GetSprite()->SetTextureRect(currentframe);
+	
 	
 	
 }
@@ -103,7 +103,7 @@ void Player::UpdatePlayerAnimation()
 	default:
 		break;
 	}
-		
+	t_sprite->SetPosition(GetXplayer(), GetYplayer());
 }
 
 
@@ -124,6 +124,7 @@ void Player::OnUpdate()
 {
 	Mouvement();
 	UpdatePlayerAnimation();
+	m_pPlayer->GetSprite()->SetPosition(GetXplayer(), GetYplayer());
 	GetManager()->TestCollision(m_pPlayer);
 	
 }
