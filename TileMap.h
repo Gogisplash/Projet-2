@@ -6,12 +6,14 @@ public:
 
     TileMap();
     virtual ~TileMap();
-    void Init();
+    void Init(sf::RenderTexture& rt);
     virtual void OnExecute();
     virtual void OnExecuteMain();           // Déclarer la fonction d'éxécution de l'écran Main
     virtual void OnUpdate();
     virtual void OnRender(sf::RenderTexture& rt);
 
+    void LoadMap();
+   
     void Map1(sf::RenderTexture& rt);
     
     void Map2(sf::RenderTexture& rt);

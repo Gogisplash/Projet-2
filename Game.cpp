@@ -20,7 +20,8 @@ void Game::Uninit()
 
 void Game::Start()
 {
-	m_tileset.Init();
+
+	m_tileset.Init(*(GetApp()->GetRenderTexture()));
 	m_player.Init();
 
 	// Paramètres de la musique dans Game
@@ -51,6 +52,13 @@ void Game::Fps()
 		m_frameCount = 0;
 		m_txtFps.setString("FPS : " + std::to_string(m_fps));
 	}
+	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
+	m_rec.setPosition(1200.f, 400.f);
+	m_rec.setFillColor(sf::Color::Color(180, 255, 255, 255));
+	GetManager()->NotifyNewPlatform(&m_rec);
+	
+
+
 }
 
 void Game::OnEnter(int oldState)
@@ -113,13 +121,14 @@ void Game::OnRender(sf::RenderTexture& rt)
 
 	viewGame.setSize(WNDSIZE_W, -WNDSIZE_H);
 	viewGame.setCenter(GetPlayer()->GetXplayer(), 450.0f);
+	
 	GetApp()->GetWindow();
 	GetApp()->GetWindow()->setView(viewGame);
 	GetApp()->GetWindow()->clear();
 
 	// Map
 	m_tileset.OnRender(rt);
-
+	rt.draw(m_rec);
 	// Entities
 	m_manager.OnRender(rt);
 

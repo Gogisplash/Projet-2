@@ -30,6 +30,8 @@ protected:
     sf::Text m_txtFps;
     sf::Font m_font;
 
+
+    sf::RectangleShape m_rec;
     Sprite m_sprite;
     Entity_manager m_manager;
     Player m_player;

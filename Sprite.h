@@ -15,16 +15,16 @@ public:
 	void Rotate(float angle);
 	void Move(sf::Vector2f velocity);
 
-	void Animation();
+	sf::Vector2f GetPosition() { return m_sprite.getPosition(); }
 	
 	sf::Sprite* GetSprite() { return &m_sprite; }
+	sf::RectangleShape* GetHitbox() { return &m_hitBox; }
 
 protected:
-
+	
+	sf::RectangleShape m_hitBox;
 	sf::Sprite m_sprite;
-	vector<Sprite> TileSet;
-	float time;
-	float elapsedTime;
 
+	
 };
 
