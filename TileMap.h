@@ -12,6 +12,10 @@ public:
     virtual void OnUpdate();
     virtual void OnRender(sf::RenderTexture& rt);
 
+    void Map1(sf::RenderTexture& rt);
+    
+    void Map2(sf::RenderTexture& rt);
+
 private:
 
     //virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const

@@ -65,7 +65,7 @@ bool Entity_manager::TestCollision(Entity* pEntity)
 	
 	for (auto it = m_plateform.begin(); it != m_plateform.end(); ++it)
 	{
-		if(pEntity->GetGlobalBounds().intersects((*it)->getGlobalBounds()));
+		if(pEntity->GetGlobalBounds().intersects((*it)->getGlobalBounds()))
 		{
 			return true;
 		}

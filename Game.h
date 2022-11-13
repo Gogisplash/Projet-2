@@ -23,12 +23,21 @@ public:
     virtual void OnUpdate();
     virtual void OnRender(sf::RenderTexture& rt);
 
+    void Fps();
+
 protected:
     sf::View viewGame;
+    sf::Text m_txtFps;
+    sf::Font m_font;
+
     Sprite m_sprite;
     Entity_manager m_manager;
     Player m_player;
     TileMap m_tileset;
     Physics m_physics;
+
+    float m_timeLastFrame;
+    int m_frameCount;
+    float m_fps;
 };
 

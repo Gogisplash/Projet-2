@@ -223,7 +223,6 @@ void App::ToPhase(int phase)
 
 void App::Render()
 {
-
 	// Clear
 	m_rt.clear();
 
