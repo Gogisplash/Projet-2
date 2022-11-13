@@ -114,6 +114,7 @@ void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
 	LoadTextureFromResource(m_texSettings, IDB_TEXTURE_SETTINGS);
+	LoadTextureFromResource(m_texCredits, IDB_PNG3);
 	LoadTextureFromResource(m_texBgLevel1, IDB_TEXTURE_BG_LEVEL1);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
 	LoadTextureFromResource(m_texTileSet, IDB_TILESET);

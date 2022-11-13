@@ -184,6 +184,7 @@
     <Image Include="ressource\Main Characters\Virtual Guy\Run (32x32).png" />
     <Image Include="ressource\Terrain\ground.png" />
     <Image Include="ressource\Terrain\Terrain (16x16).png" />
+    <Image Include="res\Texture\credits.png" />
     <Image Include="res\Texture\ground.png" />
     <Image Include="res\Texture\menu.png" />
     <Image Include="res\Texture\settings.png" />
