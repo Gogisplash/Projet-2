@@ -23,8 +23,13 @@ public:
     virtual void OnUpdate();
     virtual void OnRender(sf::RenderTexture& rt);
 
+    void Fps();
+
 protected:
     sf::View viewGame;
+    sf::Text m_txtFps;
+    sf::Font m_font;
+
 
     sf::RectangleShape m_rec;
     Sprite m_sprite;
@@ -32,5 +37,9 @@ protected:
     Player m_player;
     TileMap m_tileset;
     Physics m_physics;
+
+    float m_timeLastFrame;
+    int m_frameCount;
+    float m_fps;
 };
 

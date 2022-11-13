@@ -17,7 +17,7 @@ void Player::Init()
 {
 	m_pPlayer = new Entity;
 	m_pPlayer->SetPlayer();
-	m_pPlayer->SetPosition(1000, 820);
+	m_pPlayer->SetPosition(1000,200);
 	
 	m_pPlayer->SetTexture(GetApp()->m_texPlayerIdle);
 	m_pPlayer->GetSprite()->SetScale(3.f,3.f);
@@ -91,7 +91,7 @@ void Player::UpdatePlayerAnimation()
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 		m_animRun->Update();
 		t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
-		t_sprite->GetSprite()->setScale(m_scale_right);
+		//t_sprite->GetSprite()->setScale(m_scale_right);
 		break;
 	case RUN_RIGHT:
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));

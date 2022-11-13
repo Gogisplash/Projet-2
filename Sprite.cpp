@@ -2,8 +2,7 @@
 
 Sprite::Sprite()
 {
-	time = 0;
-	elapsedTime = 0;
+	
 }
 
 Sprite::~Sprite()
@@ -46,12 +45,7 @@ void Sprite::SetOrigin(sf::Texture& texture)
 	m_sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
 }
 
-void Sprite::Animation()
-{
-	time = GetApp()->GetTime();
-	elapsedTime = GetApp()->GetElapsedTime();
-	
-}
+
 void Sprite::Rotate(float angle)
 {
 	m_sprite.rotate(angle);
