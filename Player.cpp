@@ -50,7 +50,7 @@ void Player::Mouvement()
 	}
 	if (GetController()->Jump())
 	{
-		m_pPlayer->SetVelocityY(-250.f);
+		m_pPlayer->SetVelocityY(-350.f);
 		this->animState = JUMPING;
 	}
 	if (GetController()->Down())
