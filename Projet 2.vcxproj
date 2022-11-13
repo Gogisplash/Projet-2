@@ -186,12 +186,14 @@
     <Image Include="ressource\Terrain\Terrain (16x16).png" />
     <Image Include="res\Texture\ground.png" />
     <Image Include="res\Texture\menu.png" />
+    <Image Include="res\Texture\settings.png" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="ressource\Front\poorFront.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="res\Music\Credits.wav" />
     <Media Include="res\Music\DMenu.wav" />
     <Media Include="res\Music\Game.wav" />
     <Media Include="res\Music\Menu.wav" />

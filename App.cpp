@@ -77,7 +77,6 @@ void App::Init(HINSTANCE hInstance)
 
 	m_menu.Init();
 	
-	//ToPhase(Phase::GAME);
 	ToPhase(Phase::MENU);
 }
 
@@ -114,6 +113,7 @@ BYTE* App::GetResource(const char* resType, int id, int& size)
 void App::LoadTextures()
 {
 	LoadTextureFromResource(m_texMenu, IDB_TEXTURE_MENU);
+	LoadTextureFromResource(m_texSettings, IDB_TEXTURE_SETTINGS);
 	LoadTextureFromResource(m_texBgLevel1, IDB_TEXTURE_BG_LEVEL1);
 	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
 	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
@@ -138,6 +138,7 @@ void App::LoadMusics()
 {
 	LoadMusicFromResource(m_musicMenu, IDR_WAVE_MENU);
 	LoadMusicFromResource(m_musicGame, IDR_WAVE_GAME);
+	LoadMusicFromResource(m_musicCredits, IDR_WAVE2);
 }
 
 bool App::LoadMusicFromResource(sf::Music& music, int id)

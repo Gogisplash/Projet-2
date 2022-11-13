@@ -17,7 +17,7 @@ public:
 	void Reset();
 	int GetKey(int key, bool press);
 
-	bool Back() { return m_attack == DOWN; }
+	int Back() { return m_back == DOWN; }
 	bool Start() { return m_start == DOWN; }
 	bool Up() { return m_up == DOWN; }
 	bool Jump() { return m_jump == DOWN; }
@@ -32,6 +32,7 @@ protected:
 	int m_attack;
 	int m_start;
 	int m_jump;
+	int m_back;
 
 	bool m_up;
 	bool m_down;

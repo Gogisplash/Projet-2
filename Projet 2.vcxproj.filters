@@ -168,6 +168,9 @@
     <Image Include="ressource\Background\bg_level1.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="res\Texture\settings.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="ressource\Front\poorFront.ttf" />
@@ -180,6 +183,9 @@
       <Filter>Fichiers de ressources</Filter>
     </Media>
     <Media Include="res\Music\Game.wav">
+      <Filter>Fichiers de ressources</Filter>
+    </Media>
+    <Media Include="res\Music\Credits.wav">
       <Filter>Fichiers de ressources</Filter>
     </Media>
   </ItemGroup>

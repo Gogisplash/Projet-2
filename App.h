@@ -51,6 +51,8 @@ public:
 
 	sf::Texture m_texBgLevel1;
 	sf::Texture m_texMenu;
+	sf::Texture m_texSettings;
+	sf::Texture m_texCredits;
 	sf::Texture m_texBack;
 	sf::Texture m_texGround;
 	sf::Texture m_texPlayerIdle;
@@ -70,6 +72,7 @@ public:
 
 	sf::Music m_musicMenu;			// Musique du menu
 	sf::Music m_musicGame;			// Musique du game
+	sf::Music m_musicCredits;		// Musique du credit
 
 	// Création des sons et buffer via SFML 
 
