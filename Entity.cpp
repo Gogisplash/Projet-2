@@ -99,6 +99,7 @@ void Entity::SetTexture(sf::Texture& texture)
 	m_sprite = new Sprite;
 	m_sprite->SetTexture(texture);
 	m_sprite->SetOrigin(texture);
+
 	
 }
 
@@ -110,9 +111,9 @@ void Entity::TestCollision(sf::RectangleShape* plateform)
 	sf::Vector2f entitySize = GetSprite()->GetSize();
 	sf::Vector2f plateformSize = plateform->getSize();
 
-	sf::Vector2f entityHalfSize = GetSprite()->GetHalfSize();
+	sf::Vector2f entityHalfSize = GetSprite()->GetHalfSize() / 2.f;
 	sf::Vector2f plateformHalfSize = plateform->getSize() / 2.f;
-	float deltaX = plateformPosition.x - entityPosition.x;
+	float deltaX = plateformPosition.x - entityPosition.x + 170;
 	float deltaY = plateformPosition.y - entityPosition.y;
 	float intersectX = abs(deltaX) - (entityHalfSize.x + plateformHalfSize.x);
 	float intersectY = abs(deltaY) - (entityHalfSize.y + plateformHalfSize.y);
