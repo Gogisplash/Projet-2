@@ -65,11 +65,10 @@ bool Entity_manager::TestCollision(Entity* pEntity)
 	
 	for (auto it = m_plateform.begin(); it != m_plateform.end(); ++it)
 	{
-		
-		
-		if(pEntity->GetGlobalBounds().intersects((*it)->getGlobalBounds()));
+		bool colider = pEntity->GetGlobalHitbox().intersects((*it)->getGlobalBounds());
+  		if(colider)
 		{
-			return true;
+  			return true;
 		}
 		
 	}

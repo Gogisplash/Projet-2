@@ -32,8 +32,8 @@ void Game::Start()
 	GetApp()->m_musicGame.setLoop(true);
 
 	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
-	m_rec.setPosition(500.f, 500.f);
-	m_rec.setFillColor(sf::Color::Color(54, 255, 255, 255));
+	m_rec.setPosition(1200.f, 400.f);
+	m_rec.setFillColor(sf::Color::Color(180, 255, 255, 255));
 	GetManager()->NotifyNewPlatform(&m_rec);
 	
 
@@ -103,7 +103,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 
 	// Map
 	m_tileset.OnRender(rt);
-
+	rt.draw(m_rec);
 	// Entities
 	m_manager.OnRender(rt);
 

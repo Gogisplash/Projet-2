@@ -20,7 +20,7 @@ public:
 	void Move(float dir_x, float dir_y);
 	void Deceleration();
 
-	sf::FloatRect GetGlobalBounds();
+	sf::FloatRect GetGlobalHitbox();
 	
 	void UpdateCollision();
 

@@ -90,18 +90,14 @@ void Entity::Deceleration()
 	}
 }
 
-sf::FloatRect Entity::GetGlobalBounds()
+sf::FloatRect Entity::GetGlobalHitbox()
 {
-	
-	return m_hitbox;
+	return GetSprite()->GetSprite()->getGlobalBounds();
+	/*return GetSprite()->GetSprite()->getTransform().transformRect(m_hitbox);*/
 }
 
 void Entity::UpdateCollision()
 {
-	m_hitbox.left = GetX();
-	m_hitbox.top = GetY();
-	m_hitbox.width = 32;
-	m_hitbox.height = 32;
 	if (GetApp()->GetManager()->TestCollision(this))
 	{
 		ResetVelocityY();
