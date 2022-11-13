@@ -7,7 +7,7 @@ Physics::Physics()
 	velocityMin = 1.0f;
 	acceleration = 300.0f;
 	drag = 200.f;
-	gravity = 350.0f;
+	gravity = 500.0f;
 }
 
 Physics::~Physics()
