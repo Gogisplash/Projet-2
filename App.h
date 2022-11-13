@@ -67,6 +67,7 @@ public:
 	// Création des musiques via SFML
 
 	sf::Music m_musicMenu;			// Musique du menu
+	sf::Music m_musicGame;			// Musique du game
 
 	// Création des sons et buffer via SFML 
 

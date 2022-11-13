@@ -10,21 +10,26 @@ Game::~Game()
 
 void Game::Init()
 {
-	// Paramètres de la musique dans Game
-
-	GetApp()->m_musicMenu.stop();
 
 }
 
 void Game::Uninit()
 {
-	
+	m_manager.Clear();
 }
 
 void Game::Start()
 {
 	m_tileset.Init();
 	m_player.Init();
+
+	// Paramètres de la musique dans Game
+
+	GetApp()->m_musicMenu.stop();
+	GetApp()->m_musicGame.play();
+	GetApp()->m_musicGame.setVolume(10.f);
+	GetApp()->m_musicGame.setLoop(true);
+
 }
 
 void Game::OnEnter(int oldState)
@@ -86,6 +91,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 	viewGame.setCenter(GetPlayer()->GetXplayer(), 450.0f);
 	GetApp()->GetWindow();
 	GetApp()->GetWindow()->setView(viewGame);
+	GetApp()->GetWindow()->clear();
 
 	// Map
 	m_tileset.OnRender(rt);

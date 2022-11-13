@@ -193,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\Music\DMenu.wav" />
+    <Media Include="res\Music\Game.wav" />
     <Media Include="res\Music\Menu.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -48,7 +48,7 @@ void App::Init(HINSTANCE hInstance)
 	m_time = 0.0f;
 
 	// Window
-	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Titre", sf::Style::Close);
+	m_window.create(sf::VideoMode(WNDSIZE_W, WNDSIZE_H), "Gogisplash", sf::Style::Close);
 
 	sf::View viewMenu = m_window.getDefaultView();
 	viewMenu.setSize(WNDSIZE_W, -WNDSIZE_H);
@@ -73,15 +73,18 @@ void App::Init(HINSTANCE hInstance)
 	//Sound
 	LoadSound();
 
+	//Phases
+
 	m_menu.Init();
 
-	//ToPhase(Phase::GAME);
 	ToPhase(Phase::MENU);
 }
 
 
 void App::Uninit()
 {
+	m_menu.Uninit();
+	m_game.Uninit();
 }
 
 BYTE* App::GetResource(const char* resType, int id, int& size)
@@ -133,6 +136,7 @@ bool App::LoadTextureFromResource(sf::Texture& texture, int id)
 void App::LoadMusics()
 {
 	LoadMusicFromResource(m_musicMenu, IDR_WAVE_MENU);
+	LoadMusicFromResource(m_musicGame, IDR_WAVE_GAME);
 }
 
 bool App::LoadMusicFromResource(sf::Music& music, int id)
