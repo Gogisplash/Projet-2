@@ -3,6 +3,7 @@
 // Utilisé par Projet 2.rc
 //
 #define IDC_MYICON                      2
+#define MAX_NUMBER_OF_SETTINGS          2
 #define IDC_TEXTURE_GROUND              3
 #define IDC_MAX_NUMBER_OF_ITEMS         4
 #define MAX_NUMBER_OF_ITEMS             4
@@ -21,15 +22,17 @@
 #define IDR_FONT1                       131
 #define IDR_WAVE_MENU                   133
 #define IDR_WAVE_DMENU                  134
-#define IDR_WAVE1                       136
 #define IDR_WAVE_CLICK1                 136
 #define IDB_TEXTURE_PLAYER_RUN          137
 #define IDB_TILESET                     138
 #define IDB_PNG1                        139
 #define IDB_GROUND                      139
+#define IDR_WAVE2                       140
 #define IDB_TEXTURE_BG_LEVEL1           141
-#define IDR_WAVE2                       142
 #define IDR_WAVE_GAME                   142
+#define IDB_PNG2                        143
+#define IDB_TEXTURE_SETTINGS            143
+#define IDB_PNG3			            145
 #define IDB_TEXTURE_MENU                999
 #define IDC_TEXTURE_BACK                1000
 #define IDC_STATIC                      -1
@@ -39,7 +42,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        143
+#define _APS_NEXT_RESOURCE_VALUE        146
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

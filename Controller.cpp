@@ -44,7 +44,7 @@ int Controller::GetKey(int key, bool press)
 void Controller::OnUpdate()
 {
 	m_jump = GetKey(m_jump, sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
-	m_attack = GetKey(m_attack, sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
+	m_back = GetKey(m_back, sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
 	m_up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
 	m_down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
 	m_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);

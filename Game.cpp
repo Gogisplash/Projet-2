@@ -10,7 +10,7 @@ Game::~Game()
 
 void Game::Init()
 {
-
+	m_font.loadFromFile("C:\\Windows\\Fonts\\verdana.ttf");
 }
 
 void Game::Uninit()
@@ -31,6 +31,27 @@ void Game::Start()
 	GetApp()->m_musicGame.setVolume(10.f);
 	GetApp()->m_musicGame.setLoop(true);
 
+	// Paramètres FPS
+
+	m_txtFps.setFont(m_font);
+	m_txtFps.setCharacterSize(10);
+	m_txtFps.setStyle(sf::Text::Bold);
+	m_txtFps.setFillColor(sf::Color::Black);
+	m_txtFps.setPosition(500.0f, 500.0f);
+
+}
+
+void Game::Fps()
+{
+
+	float time = GetApp()->GetTime();
+	m_frameCount++;
+	if (time - m_timeLastFrame > 0.5f) {
+		m_fps = m_frameCount / (time - m_timeLastFrame);
+		m_timeLastFrame = time;
+		m_frameCount = 0;
+		m_txtFps.setString("FPS : " + std::to_string(m_fps));
+	}
 	m_rec = sf::RectangleShape(sf::Vector2f(50.f, 50.f));
 	m_rec.setPosition(1200.f, 400.f);
 	m_rec.setFillColor(sf::Color::Color(180, 255, 255, 255));
@@ -53,7 +74,6 @@ void Game::OnEnter(int oldState)
 		}
 	}
 }
-
 
 void Game::OnExecute()
 {
@@ -85,11 +105,14 @@ void Game::OnUpdate()
 	// Map
 	m_tileset.OnUpdate();
 
+	// Fps
+	Fps();
 }
 
 void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
+	
 	GetApp()->GetWindow()->setView(GetApp()->GetWindow()->getDefaultView());
 	rt.draw(*m_sprite.GetHitbox());
 
@@ -107,5 +130,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 	rt.draw(m_rec);
 	// Entities
 	m_manager.OnRender(rt);
+
+	rt.draw(m_txtFps);
 
 }

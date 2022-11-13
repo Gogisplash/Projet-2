@@ -26,3 +26,9 @@ Player* GetPlayer()
 {
 	return g_pApp->GetGame()->GetPlayer();
 }
+
+
+TileMap* GetTileMap()
+{
+	return g_pApp->GetGame()->GetTileMap();
+}
