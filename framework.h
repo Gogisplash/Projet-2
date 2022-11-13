@@ -1,6 +1,3 @@
-// header.h : fichier Include pour les fichiers Include système standard,
-// ou les fichiers Include spécifiques aux projets
-//
 
 #pragma once
 #include <SFML/Graphics.hpp>
@@ -33,7 +30,6 @@
 
 using namespace std; 
 
-
 #include "Global.h"
 #include "State.h"
 #include "Phase.h"
@@ -48,6 +44,7 @@ using namespace std;
 #include "Enemy.h"
 #include "Player.h"
 #include "Keys.h"
+#include "Chest.h"
 #include "Menu.h"
 #include "Game.h"
 #include "App.h"

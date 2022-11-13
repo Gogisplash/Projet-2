@@ -15,7 +15,6 @@ public:
 	BYTE* GetResource(const char* resType, int id, int& size);
 	void LoadTextures();
 	bool LoadTextureFromResource(sf::Texture& texture, int id);
-	void InitTexture();
 
 	void LoadSound();
 	bool LoadSoundFromResource(sf::SoundBuffer& sound, int id);
