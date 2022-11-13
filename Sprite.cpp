@@ -11,49 +11,49 @@ Sprite::~Sprite()
 
 void Sprite::SetTexture(const sf::Texture& texture)
 {
-
-	m_sprite.setTexture(texture);
+	m_hitBox.setTexture(&texture);
 }
 
-void Sprite::SetTextureEntity(sf::Texture& texture)
+void Sprite::SetSize(sf::Texture& texture)
 {
+	sf::Vector2f size_text = sf::Vector2f(texture.getSize());
+	m_hitBox.setSize(size_text);
+}
 
+void Sprite::SetSize(sf::Vector2f size)
+{
+	m_hitBox.setSize(size);
 }
 
 void Sprite::SetPosition(float x, float y)
 {
-	m_sprite.setPosition(x, y);
+	m_hitBox.setPosition(x, y);
 }
 
 void Sprite::SetRotation(float angle)
 {
-	m_sprite.setRotation(angle);
-}
-
-void Sprite::SetScale(float x, float y)
-{
-	m_sprite.setScale(x, y);
+	m_hitBox.setRotation(angle);
 }
 
 void Sprite::SetTextureRect(sf::IntRect rect)
 {
-	m_sprite.setTextureRect(rect);
+	m_hitBox.setTextureRect(rect);
 }
 
 void Sprite::SetOrigin(sf::Texture& texture)
 {
-	m_sprite.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
+	m_hitBox.setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);
 }
 
 
 void Sprite::Rotate(float angle)
 {
-	m_sprite.rotate(angle);
+	m_hitBox.rotate(angle);
 }
 
 void Sprite::Move(sf::Vector2f velocity)
 {
-	m_sprite.move(velocity);
+	m_hitBox.move(velocity);
 }
 
 

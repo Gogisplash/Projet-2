@@ -22,7 +22,7 @@ public:
 
 	sf::FloatRect GetGlobalHitbox();
 	
-	void UpdateCollision();
+	
 
 	sf::Vector2f GetVelocity() { return velocity; };
 	float GetX() { return m_x; }
@@ -33,10 +33,12 @@ public:
 	void SetTexture(sf::Texture& texture);
 	Sprite* GetSprite() { return m_sprite; }
 
+	void TestCollision(sf::RectangleShape* plateform);
+
 protected:
 
 	Sprite* m_sprite;
-	sf::FloatRect m_hitbox;
+	sf::RectangleShape* m_hitbox;
 
 	bool m_player;
 	float m_x;

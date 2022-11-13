@@ -62,18 +62,10 @@ void Entity_manager::NotifyNewPlatform(sf::RectangleShape* pPlateform)
 
 bool Entity_manager::TestCollision(Entity* pEntity)
 {
-	sf::Vector2f entityPosition = pEntity->GetSprite()->GetPosition();
-	//sf::Vector2f entityHalfSize = pEntity->GetSprite()->GetSprite()->getTextureRect()
+	
 	for (vector<sf::RectangleShape*>::iterator it = m_plateform.begin(); it != m_plateform.end(); ++it)
 	{
-		sf::Vector2f plateformPosistion = (*it)->getPosition();
-		sf::Vector2f plateformHalfSize = (*it)->getSize() / 2.0f;
-		bool colider = pEntity->GetGlobalHitbox().intersects((*it)->getGlobalBounds());
-  		if(colider)
-		{
-  			return true;
-		}
-		
+		pEntity->TestCollision((*it));
 	}
 	return false;
 }
@@ -82,7 +74,7 @@ void Entity_manager::DrawPlateform(sf::RenderTexture* rt)
 {
 	for (vector<sf::RectangleShape*>::iterator it = m_plateform.begin(); it != m_plateform.end(); ++it)
 	{
-		sf::RectangleShape* a = (*it);
+	
 		rt->draw(*(*it));
 		
 	}

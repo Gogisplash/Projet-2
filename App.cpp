@@ -61,7 +61,7 @@ void App::Init(HINSTANCE hInstance)
 	//SetText(txt, "Mon texte !"); Ecrire un texte
 
 	m_rt.create(WNDSIZE_W, WNDSIZE_H);
-	m_sprite.SetTexture(m_rt.getTexture());
+	m_sprite.setTexture(m_rt.getTexture());
 
 	//Textures
 	LoadTextures();
@@ -232,7 +232,7 @@ void App::Render()
 	m_pPhase->OnRender(m_rt);
 
 	// Window
-	m_window.draw(*m_sprite.GetSprite());
+	m_window.draw(m_sprite);
 	m_window.display();
 }
 

@@ -88,7 +88,7 @@ protected:
 	sf::RenderWindow m_window;
 	sf::RenderTexture m_rt;
 
-	Sprite m_sprite;
+	sf::Sprite m_sprite;
 	Controller m_controller;
 	Game m_game;
 	Menu m_menu;

@@ -91,7 +91,7 @@ void Game::OnRender(sf::RenderTexture& rt)
 {
 	// Background
 	GetApp()->GetWindow()->setView(GetApp()->GetWindow()->getDefaultView());
-	rt.draw(*m_sprite.GetSprite());
+	rt.draw(*m_sprite.GetHitbox());
 
 	// View
 

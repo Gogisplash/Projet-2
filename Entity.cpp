@@ -31,14 +31,18 @@ void Entity::OnExit(int newState)
 void Entity::OnUpdate()
 {
 	Update();
-	UpdateCollision();
+	
 }
 
 void Entity::OnRender(sf::RenderTexture& rt)
 {
-	m_sprite->SetPosition(m_x, m_y);
+	if (m_sprite != NULL)
+	{
+		m_sprite->SetPosition(m_x, m_y);
 	
-	rt.draw(*m_sprite->GetSprite());
+		rt.draw(*m_sprite->GetHitbox());
+		
+	}
 }
 
 void Entity::SetPosition(float x, float y)
@@ -92,34 +96,75 @@ void Entity::Deceleration()
 
 sf::FloatRect Entity::GetGlobalHitbox()
 {
-	return GetSprite()->GetSprite()->getGlobalBounds();
+	return GetSprite()->GetHitbox()->getGlobalBounds();
 	
 }
 
-void Entity::UpdateCollision()
-{
-	if (GetApp()->GetManager()->TestCollision(this))
-	{
-		ResetVelocityY();
-		//GetSprite()->SetPosition(GetGlobalBounds().left, WNDSIZE_H - GetGlobalBounds().height);
-	}
-	
-}
 
 void Entity::SetTexture(sf::Texture& texture)
 {
+	/*sf::Vector2f a = sf::Vector2f(texture.getSize());
+	m_hitbox = new sf::RectangleShape(a);*/
+	
 	if (m_sprite != NULL)
 	{
 		m_sprite = NULL;
 		delete m_sprite;
 	}
+	/*m_hitbox->setTexture(&texture);
+	m_hitbox->setOrigin(texture.getSize().x / 2.0f, texture.getSize().y / 2.0f);*/
 	m_sprite = new Sprite;
 	m_sprite->SetTexture(texture);
-	m_sprite->SetScale(2.0f, 2.0f);
 	m_sprite->SetOrigin(texture);
 	
 	//m_radius = min(texture.getSize().x, texture.getSize().y) / 2.0f;
 	//m_radiusSq = m_radius * m_radius;
+}
+
+void Entity::TestCollision(sf::RectangleShape* plateform)
+{
+	sf::Vector2f entityPosition = GetSprite()->GetPosition();
+	sf::Vector2f plateformPosition = plateform->getPosition();
+
+	sf::Vector2f entityHalfSize = GetSprite()->GetHalfSize();
+	sf::Vector2f plateformHalfSize = plateform->getSize() / 2.0f;
+	float deltaX = plateformPosition.x - entityPosition.x;
+	float deltaY = plateformPosition.y - entityPosition.y;
+	float intersectX = abs(deltaX) - (entityHalfSize.x + plateformHalfSize.x);
+	float intersectY = abs(deltaY) - (entityHalfSize.y + plateformHalfSize.y);
+
+	if (intersectX < 0.f && intersectY < 0.f)
+	{
+		if (intersectX > intersectY)
+		{
+			if (deltaX > 0.0f)
+			{
+				Move(intersectX, 0.0f);
+				//plateform->move(-intersectX, 0.0f);
+			}
+			else
+			{
+				Move(-intersectX, 0.0f);
+				//plateform->move(intersectX, 0.0f);
+			}
+		}
+		else
+		{
+			if (deltaY > 0.0f)
+			{
+				ResetVelocityY();
+				//Move(0.0f,intersectY);
+				//plateform->move(0.0f,-intersectY);
+			}
+			else
+			{
+				ResetVelocityY();
+				//Move(0.0f,-intersectY);
+				//plateform->move(0.0f, intersectY);
+			}
+		}
+	}
+	
 }
 
 

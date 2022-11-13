@@ -2,7 +2,7 @@
 
 TileMap::TileMap()
 {
-   
+    m_box = nullptr;
 }
 
 TileMap::~TileMap()
@@ -187,7 +187,6 @@ void TileMap::LoadMap()
                 // Relief gris
                 m_box = new sf::RectangleShape(sf::Vector2f(box_sizeX, box_sizeY));
                 m_box->setPosition(sf::Vector2f(x * box_sizeX, y * box_sizeY));
-                
                 m_box->setTexture(&m_tileset);
                 m_box->setTextureRect(sf::IntRect(211, 84, 237 - 211, 109 - 84));
                 GetApp()->GetManager()->NotifyNewPlatform(m_box);
