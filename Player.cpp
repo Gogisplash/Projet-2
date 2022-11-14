@@ -6,7 +6,7 @@ Player::Player()
 	animState = IDLE;
 	
 	m_scale_left = { -1,1 };
-	m_scale_right = { 1,-1 };
+	m_scale_right = { 1,1 };
 
 	m_lastJump = 0.f;
 	
@@ -94,12 +94,14 @@ void Player::UpdatePlayerAnimation()
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 		m_animRun->Update();
 		t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
-		t_sprite->SetScale(1.f,-1.f);
+		//t_sprite->SetScale(m_scale_left);
 		break;
 	case RUN_RIGHT:
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 		m_animRun->Update();
 		t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
+		t_sprite->SetScale(m_scale_right);
+		
 		break;
 	default:
 		
