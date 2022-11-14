@@ -17,11 +17,10 @@
 #define IDC_PROJET2                     109
 #define IDR_MAINFRAME                   128
 #define IDB_TEXTURE_GROUND              129
-#define IDB_PLAYER_IDLE                 130
 #define IDB_TEXTURE_PLAYER_IDLE         130
 #define IDR_FONT1                       131
 #define IDR_WAVE_MENU                   133
-#define IDR_WAVE_DMENU                  134
+
 #define IDR_WAVE_CLICK1                 136
 #define IDB_TEXTURE_PLAYER_RUN          137
 #define IDB_TILESET                     138
