@@ -116,9 +116,8 @@ void App::LoadTextures()
 	LoadTextureFromResource(m_texSettings, IDB_TEXTURE_SETTINGS);
 	LoadTextureFromResource(m_texCredits, IDB_PNG3);
 	LoadTextureFromResource(m_texBgLevel1, IDB_TEXTURE_BG_LEVEL1);
-	LoadTextureFromResource(m_texGround, IDB_TEXTURE_GROUND);
 	LoadTextureFromResource(m_texTileSet, IDB_TILESET);
-	LoadTextureFromResource(m_texPlayerIdle, IDB_PLAYER_IDLE);
+	LoadTextureFromResource(m_texPlayerIdle, IDB_TEXTURE_PLAYER_IDLE);
 	LoadTextureFromResource(m_texPlayerRun, IDB_TEXTURE_PLAYER_RUN);
 
 }
