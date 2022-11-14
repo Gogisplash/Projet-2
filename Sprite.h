@@ -10,7 +10,7 @@ public:
 	void SetSize(sf::Vector2f size);
 	void SetPosition(float x, float y);
 	void SetRotation(float angle);
-	//void SetScale(float x, float y);
+	void SetScale(float x, float y);
 	void SetTextureRect(sf::IntRect rect);
 	void SetOrigin(sf::Texture& texture);
 	void Rotate(float angle);

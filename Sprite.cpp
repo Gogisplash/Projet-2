@@ -35,6 +35,11 @@ void Sprite::SetRotation(float angle)
 	m_hitBox.setRotation(angle);
 }
 
+void Sprite::SetScale(float x, float y)
+{
+	m_hitBox.setScale(x, y);
+}
+
 void Sprite::SetTextureRect(sf::IntRect rect)
 {
 	m_hitBox.setTextureRect(rect);

@@ -44,13 +44,13 @@ void Player::Mouvement()
 		
 		this->animState = RUN_RIGHT;
 	}
-	if (GetController()->Left())
+	else if (GetController()->Left())
 	{
 		m_pPlayer->Move(-1.0f, 0.0f);
 		
 		this->animState = RUN_LEFT;
 	}
-	if (GetController()->Jump())
+	else if (GetController()->Jump())
 	{
 		if (time - m_lastJump > 1.f)
 		{
@@ -59,16 +59,11 @@ void Player::Mouvement()
 			this->animState = JUMPING;
 		}
 	}
-	if (GetController()->Down())
-	{
-		m_pPlayer->Move(0.f, 1.f);
-		this->animState = CRAWLING;
-	}
-	else
-	{
-		this->animState = IDLE;
+	else {
+		animState = IDLE;
 		m_pPlayer->Deceleration();
 	}
+	
 	
 	m_pPlayer->AddY(m_pPlayer->GetVelocity().y * elapsed);
 	m_pPlayer->AddX(m_pPlayer->GetVelocity().x * elapsed);
@@ -99,7 +94,7 @@ void Player::UpdatePlayerAnimation()
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));
 		m_animRun->Update();
 		t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
-		//t_sprite->GetSprite()->setScale(m_scale_right);
+		t_sprite->SetScale(1.f,-1.f);
 		break;
 	case RUN_RIGHT:
 		t_sprite->SetTexture((GetApp()->m_texPlayerRun));
@@ -107,6 +102,7 @@ void Player::UpdatePlayerAnimation()
 		t_sprite->SetTextureRect(m_animRun->GetCurrentFrame());
 		break;
 	default:
+		
 		break;
 	}
 	
