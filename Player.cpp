@@ -7,6 +7,8 @@ Player::Player()
 	
 	m_scale_left = { -1,1 };
 	m_scale_right = { 1,-1 };
+
+	m_lastJump = 0.f;
 	
 }
 
@@ -50,8 +52,12 @@ void Player::Mouvement()
 	}
 	if (GetController()->Jump())
 	{
-		m_pPlayer->SetVelocityY(-350.f);
-		this->animState = JUMPING;
+		if (time - m_lastJump > 1.f)
+		{
+			m_pPlayer->SetVelocityY(-350.f);
+			m_lastJump = time;
+			this->animState = JUMPING;
+		}
 	}
 	if (GetController()->Down())
 	{

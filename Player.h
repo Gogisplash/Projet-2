@@ -34,6 +34,7 @@ protected:
     Entity* m_pPlayer;
     Sprite* m_sprite;
 
+    float m_lastJump;
 
     float m_speed;
      

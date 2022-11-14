@@ -153,7 +153,7 @@ bool App::LoadMusicFromResource(sf::Music& music, int id)
 
 void App::LoadSound()
 {
-	LoadSoundFromResource(bufferDMenu, IDR_WAVE_DMENU);
+	LoadSoundFromResource(bufferDMenu, IDR_WAVE_MENU);
 
 	m_soundDMenu.setBuffer(GetApp()->bufferDMenu);
 
